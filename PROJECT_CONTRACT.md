@@ -496,7 +496,11 @@ Favor:
 This section records decisions that may evolve. Do not treat them as non-negotiable unless explicitly promoted above.
 
 - **2026-08-18:** The required local project and Git root is `/Users/JDub/Desktop/OceanMastering_website`.
-- **2026-08-18:** No framework, rendering stack, repository name, or GitHub Pages publishing strategy has been selected yet. Those decisions must follow inspection of the current site, conceptual reference, local folder, and GitHub organization.
+- **2026-08-18:** Use a static progressive-enhancement architecture: semantic HTML, authored CSS, native JavaScript modules, and one locally vendored, version-pinned Three.js module for the signature 3D scene. Do not use a component framework, page-builder runtime, remote CDN, or animation framework.
+- **2026-08-18:** The waveform and water are one continuous mesh. Vertex depth, displacement, normals, material, and camera perspective evolve with scroll; a replacement mesh or crossfade is not acceptable.
+- **2026-08-18:** Use native document scrolling with a deterministic normalized progress model and critically damped visual interpolation. Reduced-motion mode uses authored still states and avoids long pinned travel.
+- **2026-08-18:** Create the organization Pages repository as `Ocean-Mastering/Ocean-Mastering.github.io` and publish from the root of `main` after local prototype validation.
+- **2026-08-18:** Do not migrate the current site's “ISO 12845:2018” claim. The official ISO catalogue shows ISO/TR 12845:2010 concerns statistical experiment design, not audio mastering.
 
 ## Current implementation state
 
@@ -506,41 +510,43 @@ Last updated: **2026-08-18**
 
 - Created this authoritative project contract as the mandatory first project artifact.
 - Recorded the complete approved narrative, brand philosophy, non-negotiables, technical constraints, implementation order, and quality requirements.
+- Initialized this folder as a Git repository on `main` and committed the contract.
+- Audited the current Ocean Mastering site, its content, media inventory, and migration risks.
+- Studied the conceptual reference at multiple scroll positions and documented transferable interaction principles.
+- Verified access to the empty `Ocean-Mastering` GitHub organization through the active `jonny-dub` account.
+- Selected and documented the rendering, scroll, accessibility, and deployment architecture.
 
 ### Remaining
 
-- Initialize and inspect the repository.
-- Audit the current Ocean Mastering website.
-- Inspect United Carriers for conceptual scroll-story mechanics.
-- Inspect the Ocean Mastering GitHub organization and determine repository/Pages structure.
-- Inventory any local or current-site assets and useful business content.
-- Select and document architecture.
 - Prototype and prove the central signal-to-sea transformation.
 - Build the full narrative and supporting business content.
 - Test, optimize, deploy, and verify GitHub Pages.
 
 ### Current architecture
 
-- None selected yet; the project contains only this contract.
+- Static HTML/CSS/native JavaScript modules with a locally vendored, pinned Three.js module for the procedural signal-to-water scene.
+- Native scrolling drives a single normalized, reversible narrative state through a damped render loop.
+- Full details are in `ARCHITECTURE.md`.
 
 ### Key files
 
 - `PROJECT_CONTRACT.md` — authoritative creative and technical work order.
+- `DISCOVERY_AUDIT.md` — current-site, reference, asset, accuracy, and GitHub findings.
+- `ARCHITECTURE.md` — rendering, scroll, performance, accessibility, and deployment decisions.
 
 ### Known issues
 
-- Current-site content and assets have not yet been audited.
-- GitHub organization/repository state has not yet been inspected.
-- The rendering approach for the signature waveform-to-water transformation remains an evidence-based implementation decision.
+- The central visual prototype has not yet been implemented or validated.
+- Approved current-site media has been inventoried but not yet migrated or optimized.
+- No GitHub repository has been created yet; creation follows local prototype validation.
 
 ### Next logical tasks
 
-1. Initialize `/Users/JDub/Desktop/OceanMastering_website` as the Git repository root.
-2. Inspect the empty/local project state.
-3. Audit `https://www.ocean-mastering.com/`.
-4. Study the scroll-state mechanics of `https://unitedcarriers.com/` without copying its design.
-5. Inspect `https://github.com/Ocean-Mastering` and establish the correct repository/deployment plan.
-6. Document the chosen architecture here before implementing the visual prototype.
+1. Vendor a pinned Three.js module and create the static application shell.
+2. Implement the normalized scroll controller and chapter state model.
+3. Prototype the persistent mesh from fragile line through open water.
+4. Validate reverse scrolling, mobile framing, reduced motion, and fallback behavior.
+5. Only after the prototype gate passes, migrate approved media and build supporting business sections.
 
 ## Experience in one sentence
 
