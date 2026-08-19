@@ -4,6 +4,7 @@ import { createParticles } from "./particles.js";
 import { createCurrents } from "./currents.js";
 import { createLightField } from "./light-field.js";
 import { createPressureField } from "./pressure.js";
+import { createCloudField } from "./cloud-field.js";
 
 const skyVertexShader = /* glsl */`
   varying vec3 vDirection;
@@ -21,16 +22,16 @@ const skyFragmentShader = /* glsl */`
   varying vec3 vDirection;
   void main() {
     float vertical = clamp(vDirection.y * 0.5 + 0.5, 0.0, 1.0);
-    vec3 airZenith = vec3(0.002, 0.006, 0.018);
-    vec3 airHorizon = mix(vec3(0.012, 0.055, 0.12), vec3(0.035, 0.20, 0.38), uReveal);
+    vec3 airZenith = mix(vec3(0.035, 0.28, 0.72), vec3(0.055, 0.38, 0.82), uReveal);
+    vec3 airHorizon = mix(vec3(0.23, 0.68, 0.96), vec3(0.40, 0.80, 1.0), uReveal);
     vec3 air = mix(airHorizon, airZenith, smoothstep(0.45, 0.88, vertical));
     float upGlow = pow(vertical, 3.2);
     float abyss = smoothstep(0.12, 0.92, uDepth);
-    vec3 deep = mix(vec3(0.004, 0.060, 0.16), vec3(0.001, 0.004, 0.022), abyss);
-    vec3 shallow = mix(vec3(0.025, 0.28, 0.58), vec3(0.008, 0.065, 0.20), abyss);
+    vec3 deep = mix(vec3(0.004, 0.095, 0.28), vec3(0.001, 0.004, 0.022), abyss);
+    vec3 shallow = mix(vec3(0.02, 0.42, 0.80), vec3(0.008, 0.065, 0.20), abyss);
     shallow = mix(shallow * 0.78, shallow, uClarity);
     vec3 underwater = mix(deep, shallow, upGlow * mix(0.92, 0.52, abyss));
-    underwater += mix(vec3(0.02, 0.15, 0.32), vec3(0.005, 0.025, 0.10), abyss) * smoothstep(0.55, 1.0, vertical);
+    underwater += mix(vec3(0.015, 0.24, 0.52), vec3(0.005, 0.025, 0.10), abyss) * smoothstep(0.55, 1.0, vertical);
     gl_FragColor = vec4(mix(air, underwater, uSubmersion), 1.0);
   }
 `;
@@ -53,7 +54,7 @@ export function createBelowSurfaceScene(canvas, reducedMotion = false) {
 
   const quality = chooseQuality();
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(45, 1, 0.08, 420);
+  const camera = new THREE.PerspectiveCamera(45, 1, 0.08, 7500);
   const skyGeometry = new THREE.SphereGeometry(210, 36, 20);
   const skyUniforms = {
     uSubmersion: { value: 0 },
@@ -77,7 +78,8 @@ export function createBelowSurfaceScene(canvas, reducedMotion = false) {
   const currents = createCurrents(quality);
   const light = createLightField();
   const pressure = createPressureField();
-  scene.add(light.group, pressure.group, particles.points, currents.group, water.mesh);
+  const clouds = createCloudField();
+  scene.add(light.group, pressure.group, particles.points, currents.group, water.mesh, clouds.group);
 
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -120,6 +122,7 @@ export function createBelowSurfaceScene(canvas, reducedMotion = false) {
     currents.update(state, pixelRatio, ambientTime);
     light.update(state, ambientTime);
     pressure.update(state, ambientTime);
+    clouds.update(state, ambientTime);
     renderer.render(scene, camera);
   }
 
@@ -129,6 +132,7 @@ export function createBelowSurfaceScene(canvas, reducedMotion = false) {
     currents.dispose();
     light.dispose();
     pressure.dispose();
+    clouds.dispose();
     skyGeometry.dispose();
     skyMaterial.dispose();
     renderer.dispose();

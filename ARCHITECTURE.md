@@ -30,7 +30,8 @@ scripts/
 │   ├── particles.js           depth-aware procedural flow tracers
 │   ├── currents.js            volumetric current-density fields
 │   ├── pressure.js            slow deep-water displacement field
-│   └── light-field.js         sun, caustics, beams, attenuation
+│   ├── light-field.js         sun, caustics, beams, attenuation
+│   └── cloud-field.js         transparent raster cloud crossing at altitude
 └── copy-layer.js              one thought at a time from storyboard state
 ```
 
@@ -73,9 +74,9 @@ The renderer receives one immutable state object derived from progress:
 
 ### Persistent surface
 
-One large displaced plane at world `y = 0` is rendered double-sided. It is always the visible mix/surface anchor.
+One large displaced plane at world `y = 0` is rendered double-sided. Its vertices use nonlinear spatial distribution: dense around the focal area and increasingly broad toward a multi-kilometer horizon. It is always the visible mix/surface anchor without exposing a rectangular edge during the aerial pullout.
 
-- From above, camera sees dark sky, reflection, and restrained crest highlights.
+- From above, camera sees a bright Caribbean-blue daylight sky, reflection, and restrained crest highlights.
 - At the threshold, the plane intersects the view and naturally divides air/depth.
 - From below, the same geometry shows a refracted luminous underside.
 - Vertex displacement is low-amplitude and broad at opening, increasingly legible as a signal profile near the waterline, and richer-but-natural at the finale.
@@ -95,10 +96,16 @@ slightly above surface
 → upward reversal
 → near-surface underside
 → surface intersection
-→ elevated final reveal
+→ focal-locked rising pullout
+→ rapidly crossed transparent cirrus layers
+→ high aerial final reveal
 ```
 
-Target and pitch change sparingly. Surface distance remains readable in every underwater shot.
+Target and pitch change sparingly. Surface distance remains readable in every underwater shot. In the finale the target remains fixed on one distant patch of ocean while camera altitude, pullback, downward pitch, and field of view increase together.
+
+### Aerial cloud crossing
+
+Three horizontal raster cloud layers sit along the final camera trajectory at different elevations. They are front-facing from above, alpha rapidly near `0.978`, and become visible as the camera physically rises through them. The primary cirrus texture is a purpose-built transparent PNG; two lighter supporting textures are CC0 assets. No cloud SVGs, CSS cloud shapes, or sky-backed rectangles are used.
 
 ### Waterline treatment
 
@@ -189,6 +196,7 @@ The text-hidden desktop and responsive-mobile review now shows:
 7. a clear deepest hover and upward reversal;
 8. ascent through the same layers;
 9. physical emergence;
-10. the same ocean revealed with richer dimension.
+10. the same ocean revealed with richer dimension;
+11. a continuous focal-locked pullout through transparent cirrus into a high aerial view.
 
 The current visual test path is `/?visual-only=1`. Reverse-scrub capture returned the exact prior frame. Physical-device performance validation remains outstanding before deployment.

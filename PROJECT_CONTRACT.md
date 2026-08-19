@@ -105,8 +105,8 @@ All ranges below describe one pinned scene. Exact curve values may be tuned; ran
 
 ### 0.00–0.08 — Shot 1: Above the water / Almost nothing
 
-- Camera begins slightly above an almost perfectly calm midnight ocean.
-- Distant horizon, near-black sky, subtle reflection, one restrained swell.
+- Camera begins slightly above an almost perfectly calm Caribbean-blue ocean in full daylight.
+- Distant horizon, bright blue sky, subtle reflection, one restrained swell. The opening must never read as ocean floating in outer space.
 - Scroll moves the camera primarily **downward**, not toward the horizon.
 - Horizon rises in frame; water detail increases; camera ends inches above the surface.
 - Water phase and the passing swell are scrubbed by progress.
@@ -176,23 +176,25 @@ All ranges below describe one pinned scene. Exact curve values may be tuned; ran
 - Lighting brightens, color richness increases, water clears, and ascent has elegant momentum.
 - Copy: “Same music. Greater revelation.”
 
-### 0.91–0.96 — Shot 10: Breaking the surface
+### 0.90–0.95 — Shot 10: Breaking the surface
 
 - Camera approaches the luminous underside of the waveform-like surface.
 - Refraction intensifies and the actual waterline moves down through the viewport.
 - The frame passes from mostly underwater to half-submerged to fully above water.
 - This mirrors the first crossing but carries greater clarity and emotional weight.
 
-### 0.96–1.00 — Shot 11: Revelation / The same wave fully seen
+### 0.95–1.00 — Shot 11: Revelation / The ocean without an edge
 
-- Camera rises and eases slightly backward to reveal more of the same ocean.
+- Camera continues the existing rising jib move and pulls rapidly backward while remaining focally locked on the same distant patch of ocean.
+- Increasing altitude, downward pitch, and field of view reveal more and more of the same water without exposing the edge of a finite plane.
+- The camera physically crosses three thin transparent raster cloud layers, including a purpose-built cirrus PNG, before reaching a high aerial view.
 - The opening swell now has beautifully defined shape, body, internal movement, highlights, and preserved natural variation.
 - It does not become a storm, an absurd wall, or a “louder” cartoon.
 - The lone wave is understood as part of a vast coherent body of water.
 - Final copy: “Mastering doesn’t add the ocean. It reveals the depth that was already there.”
 - Supporting thought: “Your music. Fully revealed.”
 - CTA: **START A MASTER**
-- Only at this completed state may an extremely gentle ambient ocean drift continue without new scroll input.
+- Restrained ambient ocean and cloud drift may continue without new scroll input; the camera and copy remain settled.
 
 ## Centralized choreography model
 
@@ -280,7 +282,8 @@ Preserve verified factual content from the current site, including the founder s
 
 ## Visual language
 
-- near-black, midnight, Atlantic blue, and blue-black water
+- bright Caribbean and tropical-sky blues above the opening water; no nocturnal or outer-space sky
+- near-black, midnight, Atlantic blue, and blue-black water at increasing depth
 - shallow water may lean toward a luminous Pacific blue, while increasing depth must progressively absorb light into saturated navy and near-black abyssal blue
 - sparse luminous ice-blue and silver-blue highlights
 - subtle silver reflection
@@ -337,7 +340,7 @@ Mobile keeps the full story. It may reduce geometry, particles, caustics, curren
 
 Hide all marketing copy, mute the browser, and steadily scrub from top to bottom. A viewer must unmistakably see:
 
-**calm ocean → surface approach → water becomes signal → physical submergence → surface overhead → shimmer → currents → pressure → relationships become coherent → camera turns → ascent through the same layers → physical emergence → the same ocean revealed as deeper, clearer, and more alive**
+**sunlit Caribbean ocean → surface approach → water becomes signal → physical submergence → surface overhead → shimmer → currents → pressure → relationships become coherent → camera turns → ascent through the same layers → physical emergence → focal-locked aerial pullout → rapid cirrus crossing → the same ocean revealed as deeper, clearer, and more alive**
 
 If instead the recording reads as headline, fade, paragraph, ocean image, headline, effect, stop and redesign.
 
@@ -347,7 +350,8 @@ If instead the recording reads as headline, fade, paragraph, ocean image, headli
 - **2026-08-18:** Preserve the rejected version only in Git history; do not reuse its page composition, portfolio graphics, equipment diagrams, custom player, or surface-to-mesh reveal.
 - **2026-08-18:** Continue to use a static progressive-enhancement architecture and organization Pages repository plan unless testing proves a change necessary.
 - **2026-08-18:** Build the new scene from a true above/below ocean camera model with one persistent double-sided water surface, procedural depth layers, and scroll-derived particle/current fields.
-- **2026-08-18:** Major physical phase uses scroll progress rather than autonomous elapsed time. Only negligible completed-finale breathing may remain time-based.
+- **2026-08-18:** Major narrative phase uses a damped scroll playhead, while a separate restrained ambient clock keeps the ocean alive without moving camera or copy.
+- **2026-08-18:** The opening sky is full Caribbean daylight. The finale continues the focal-locked jib into a high aerial pullout and physically crosses transparent raster cirrus layers; cloud SVGs are prohibited.
 - **2026-08-18:** Do not migrate legacy visual assets or the inaccurate standards claim.
 - **2026-08-18:** Three.js `0.185.1` is vendored locally with its license; there is no runtime CDN or package build step.
 - **2026-08-18:** The replacement uses one displaced double-sided water plane, deterministic depth particles, soft particulate current volumes, deep pressure shells, procedural light fields, and a vertically dominant camera path.
@@ -356,7 +360,7 @@ If instead the recording reads as headline, fade, paragraph, ocean image, headli
 
 ## Current implementation state
 
-Last updated: **2026-08-18, after replacement prototype validation**
+Last updated: **2026-08-18, after Caribbean-daylight and aerial-cloud validation**
 
 ### Complete and still valid
 
@@ -369,7 +373,7 @@ Last updated: **2026-08-18, after replacement prototype validation**
 - This contract now records **BELOW THE SURFACE** as authoritative.
 - The superseded homepage implementation and its media/dependency assets have been removed from the working tree.
 - `ARCHITECTURE.md` now defines the replacement continuous above/below-water scene.
-- The replacement homepage is implemented from scratch as one `760svh` cinematic region with one sticky WebGL scene.
+- The replacement homepage is implemented from scratch as one `820svh` cinematic region with one sticky WebGL scene.
 - All eleven normalized story shots are centralized in `scripts/storyboard.js`.
 - The camera physically crosses the same displaced water surface during descent and emergence.
 - Near-surface shimmer, volumetric particulate currents, deep pressure, coherence, physical turn, ascent, and final reveal are implemented as one connected space.
@@ -377,6 +381,7 @@ Last updated: **2026-08-18, after replacement prototype validation**
 - Adaptive high, balanced, and mobile GPU quality tiers are implemented.
 - Reduced motion selects stable authored depth states rather than continuously moving the camera.
 - Chrome startup no longer depends on a chain of ES-module requests; `scripts/app.bundle.js` contains the locally vendored renderer and authored scene code in one deferred entry.
+- The final camera remains locked on one ocean target while rising to `+190m`, pitching downward, widening, and crossing a generated transparent cirrus texture plus two supporting CC0 alpha layers.
 - A no-startup fallback now keeps the opening message and all practical content visible without the multi-screen pinned state.
 - Desktop `1280×720` and responsive mobile `390×844` browser passes retained the full story and rendered WebGL successfully.
 - The text-hidden sequence was inspected across the full storyboard. Reverse scrubbing reconstructed the exact prior captured frame, and stopped reduced-motion states remained pixel-stable within their shot.

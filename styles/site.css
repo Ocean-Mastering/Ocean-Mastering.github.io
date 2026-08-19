@@ -44,7 +44,7 @@ svg, canvas { display: block; }
 .site-header nav a:hover { color: var(--ink); }
 .site-header .nav-cta { padding: .75rem 1rem; border: 1px solid var(--line); border-radius: 99px; color: var(--ink); }
 
-.cinematic { --progress: 0; position: relative; height: 760svh; background: var(--deep); }
+.cinematic { --progress: 0; position: relative; height: 820svh; background: var(--deep); }
 .cinematic-stage { position: sticky; top: 0; width: 100%; height: 100svh; overflow: clip; background: #010612; isolation: isolate; }
 [data-ocean-canvas] { visibility: hidden; }
 .app-ready [data-ocean-canvas] { visibility: visible; }
@@ -116,7 +116,7 @@ body > footer { display: grid; grid-template-columns: 1fr auto auto; gap: 2rem; 
   :root { --header-height: 4.5rem; }
   .site-header nav a:not(.nav-cta) { display: none; }
   .brand svg { width: 2.75rem; }
-  .cinematic { height: 680svh; }
+  .cinematic { height: 740svh; }
   .story-copy { width: min(32rem, 90vw); }
   .story-copy h1, .story-copy h2 { font-size: clamp(2.9rem, 13vw, 5.3rem); }
   .story-copy--opening, .story-copy--currents { top: 23%; }
@@ -136,6 +136,6 @@ body > footer { display: grid; grid-template-columns: 1fr auto auto; gap: 2rem; 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
-  .cinematic { height: 520svh; }
+  .cinematic { height: 560svh; }
   .story-copy { filter: none; }
 }

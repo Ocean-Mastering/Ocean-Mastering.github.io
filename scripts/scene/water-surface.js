@@ -24,7 +24,10 @@ const vertexShader = /* glsl */`
 
   void main() {
     vec3 transformed = position;
-    float field = waveField(position.xz);
+    vec2 normalizedPosition = position.xz;
+    transformed.x = sign(normalizedPosition.x) * pow(abs(normalizedPosition.x), 1.85) * 3000.0;
+    transformed.z = sign(normalizedPosition.y) * pow(abs(normalizedPosition.y), 1.85) * 3000.0;
+    float field = waveField(transformed.xz);
     transformed.y += field * uAmplitude * 3.1;
     vHeight = transformed.y;
     vCrest = smoothstep(0.18, 0.9, field);
@@ -60,14 +63,14 @@ const fragmentShader = /* glsl */`
     caustic *= sin(vWorldPosition.z * 0.47 - vWorldPosition.x * 0.16 + uStoryTime * 0.31);
     caustic = pow(abs(caustic), 7.0) * uCaustic;
 
-    vec3 aboveDeep = mix(vec3(0.004, 0.035, 0.10), vec3(0.008, 0.10, 0.24), uReveal);
-    vec3 aboveLight = mix(vec3(0.035, 0.24, 0.48), vec3(0.14, 0.52, 0.78), uReveal);
+    vec3 aboveDeep = mix(vec3(0.01, 0.14, 0.36), vec3(0.025, 0.30, 0.60), uReveal);
+    vec3 aboveLight = mix(vec3(0.05, 0.42, 0.82), vec3(0.24, 0.76, 1.0), uReveal);
     vec3 above = mix(aboveDeep, aboveLight, diffuse * 0.58 + fresnel * 0.64);
     above += vec3(0.70, 0.90, 1.0) * (sparkle * (0.36 + uReveal * 0.52) + vCrest * 0.045);
 
     float abyss = smoothstep(0.12, 0.9, uDepth);
-    vec3 belowDeep = mix(vec3(0.006, 0.085, 0.22), vec3(0.001, 0.005, 0.026), abyss);
-    vec3 belowLight = mix(vec3(0.025, 0.34, 0.68), vec3(0.008, 0.075, 0.24), abyss);
+    vec3 belowDeep = mix(vec3(0.006, 0.13, 0.34), vec3(0.001, 0.005, 0.026), abyss);
+    vec3 belowLight = mix(vec3(0.025, 0.46, 0.86), vec3(0.008, 0.075, 0.24), abyss);
     belowLight = mix(belowLight * 0.72, belowLight, uClarity);
     vec3 below = mix(belowDeep, belowLight, fresnel * 0.54 + diffuse * 0.26);
     below += vec3(0.16, 0.55, 1.0) * caustic * mix(0.24, 0.08, abyss);
@@ -82,14 +85,14 @@ const fragmentShader = /* glsl */`
     float cameraSide = smoothstep(-0.22, 0.22, cameraPosition.y);
     vec3 color = mix(below, above, cameraSide);
     float distanceHaze = clamp(length(cameraPosition - vWorldPosition) / 125.0, 0.0, 1.0);
-    vec3 hazeColor = mix(vec3(0.001, 0.009, 0.04), vec3(0.008, 0.09, 0.22), (1.0 - uSubmersion) * (1.0 - abyss));
+    vec3 hazeColor = mix(vec3(0.001, 0.009, 0.04), vec3(0.04, 0.34, 0.68), (1.0 - uSubmersion) * (1.0 - abyss));
     color = mix(color, hazeColor, distanceHaze * mix(0.72, 0.28, uClarity));
     gl_FragColor = vec4(color, 1.0);
   }
 `;
 
 export function createWaterSurface(quality) {
-  const geometry = new THREE.PlaneGeometry(160, 190, quality.waterX, quality.waterZ);
+  const geometry = new THREE.PlaneGeometry(2, 2, quality.waterX, quality.waterZ);
   geometry.rotateX(-Math.PI / 2);
   const uniforms = {
     uStoryTime: { value: 0 },
@@ -109,7 +112,7 @@ export function createWaterSurface(quality) {
     extensions: { derivatives: true }
   });
   const mesh = new THREE.Mesh(geometry, material);
-  mesh.position.z = -30;
+  mesh.position.z = -34;
   mesh.frustumCulled = false;
 
   function update(state, ambientTime = 0) {
