@@ -373,7 +373,7 @@ Last updated: **2026-08-18, after extended-finale and full-content integration v
 - This contract now records **BELOW THE SURFACE** as authoritative.
 - The superseded homepage implementation and its media/dependency assets have been removed from the working tree.
 - `ARCHITECTURE.md` now defines the replacement continuous above/below-water scene.
-- The replacement homepage is implemented from scratch as one `1050svh` cinematic region (`980svh` on mobile) with one sticky WebGL scene and a guarded handoff. Piecewise scroll mapping assigns native progress `0.70–0.985` to the growing aerial reveal so it changes continuously across roughly 2.6 viewport-heights instead of ending in a long static hold.
+- The replacement homepage is implemented from scratch as one `1050svh` cinematic region (`980svh` on mobile) with one sticky WebGL scene and a guarded handoff. Piecewise scroll mapping assigns native progress `0.70–0.985` to the growing aerial reveal so it changes continuously across roughly 2.6 viewport-heights instead of ending in a long static hold. The light content cannot enter until the damped finale settles at the boundary, and returning upward from an anchor-bypassed content section re-arms that guard.
 - All eleven normalized story shots are centralized in `scripts/storyboard.js`.
 - The camera physically crosses the same displaced water surface during descent and emergence.
 - Near-surface shimmer, volumetric particulate currents, deep pressure, coherence, physical turn, ascent, and final reveal are implemented as one connected space.
