@@ -20,6 +20,7 @@ index.html
 └── semantic contact/footer
 
 scripts/
+├── app.bundle.js              committed self-contained browser runtime
 ├── main.js                    lifecycle and capability boot
 ├── scroll-playhead.js         native scroll → exact normalized progress
 ├── storyboard.js              authoritative shot ranges and interpolated state
@@ -162,6 +163,7 @@ Every tier retains the full story.
 - No allocations in the render loop.
 - No video or image-sequence simulation.
 - No external runtime CDN.
+- Production HTML loads one committed classic bundle so local `file://`, static-server, and GitHub Pages startup do not depend on module-fetch behavior.
 - Pause on `document.hidden` and when the cinematic stage is far outside the viewport.
 - Defer non-cinematic audio and supporting content.
 - Dispose GPU resources on genuine unload while supporting back-forward cache restore.

@@ -54,6 +54,7 @@ const playhead = new ScrollPlayhead(root, (progress, active) => {
   else stopFinale();
 });
 
+document.documentElement.classList.add("app-ready");
 playhead.start();
 
 let resizeFrame = 0;

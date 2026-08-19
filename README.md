@@ -4,13 +4,21 @@ A static, procedural WebGL website for Ocean Mastering. The homepage is one cont
 
 ## Local preview
 
-There is no build step and no runtime CDN. Serve the Git root so browser ES modules load correctly:
+There is no runtime CDN. The committed browser bundle can be served directly from the Git root:
 
 ```bash
 python3 -m http.server 4173
 ```
 
 Then open `http://127.0.0.1:4173/`.
+
+The committed bundle also allows `index.html` to be opened directly from Finder for quick review. A real local server remains the preferred test because it matches GitHub Pages.
+
+After changing source files in `scripts/`, regenerate the browser bundle with:
+
+```bash
+pnpm dlx esbuild@0.25.9 scripts/main.js --bundle --format=iife --target=chrome100,safari15,firefox100 --minify --legal-comments=inline --outfile=scripts/app.bundle.js
+```
 
 ## QA views
 
@@ -24,6 +32,7 @@ Then open `http://127.0.0.1:4173/`.
 - `styles/site.css` — responsive editorial presentation and accessibility states
 - `scripts/storyboard.js` — authoritative normalized eleven-shot choreography
 - `scripts/scene/` — water, particles, currents, pressure, light, and camera renderer
+- `scripts/app.bundle.js` — self-contained browser entry used by `index.html`
 - `assets/vendor/` — locally pinned Three.js runtime and license
 - `PROJECT_CONTRACT.md` — authoritative creative and technical contract
 - `ARCHITECTURE.md` — implementation model and deployment target
