@@ -130,6 +130,7 @@ html:not(.app-ready) .depth-meter { display: none; }
 .ocean-player__visual { position: relative; min-height: 48rem; overflow: hidden; border-right: 1px solid rgba(126, 204, 255, .16); background: radial-gradient(circle at 45% 35%, rgba(72, 188, 244, .27), transparent 33%), linear-gradient(180deg, #071d39, #020916); }
 .ocean-player__visual::before { position: absolute; z-index: 1; inset: 0; content: ""; background: repeating-linear-gradient(115deg, transparent 0 36px, rgba(135, 220, 255, .06) 37px 39px, transparent 40px 73px); mix-blend-mode: screen; animation: caustic-slide 9s linear infinite; }
 .ocean-player__visual img { position: absolute; z-index: 3; left: 50%; top: 48%; width: min(118%, 45rem); height: auto; transform: translate(-50%, -50%); filter: drop-shadow(0 2rem 2.5rem rgba(0, 6, 22, .55)) saturate(.9) hue-rotate(5deg); }
+.ocean-player__visual img, .standards-section__wave img { height: auto; aspect-ratio: 3 / 2; object-fit: contain; }
 .ocean-player__visual canvas { position: absolute; z-index: 2; inset: 0; width: 100%; height: 100%; opacity: .72; }
 .ocean-player__depth { position: absolute; z-index: 5; left: 2rem; bottom: 2rem; color: rgba(220, 244, 255, .68); font: 500 .55rem/1.4 var(--mono); letter-spacing: .18em; text-transform: uppercase; }
 .ocean-player__ring { position: absolute; z-index: 2; left: 50%; top: 50%; width: 24rem; aspect-ratio: 1; border: 1px solid rgba(111, 210, 255, .22); border-radius: 50%; transform: translate(-50%, -50%); animation: sonar 5s ease-out infinite; }
@@ -294,8 +295,9 @@ body > footer p:last-child { text-align: right; }
   .service-rows article { grid-template-columns: 3rem 1fr; }
   .service-rows article p { grid-column: 2; }
   .standards-section { grid-template-columns: 1fr; }
-  .standards-section__wave { min-height: 24rem; }
-  .standards-section__wave img { right: -20%; width: 140%; }
+  .standards-section__wave { display: flex; min-height: 0; margin-top: 3.5rem; align-items: flex-end; justify-content: center; }
+  .standards-section__wave::before { inset: 0; }
+  .standards-section__wave img { position: relative; inset: auto; display: block; width: min(100%, 32rem); height: auto; }
   .about-section__portrait { max-width: 30rem; border-radius: 1.2rem 5rem 1.2rem 1.2rem; }
   .credit-grid { grid-template-columns: repeat(2, 1fr); }
   .credit-card > span { position: relative; padding: .9rem; background: none; opacity: 1; transform: none; }
