@@ -82,9 +82,14 @@ html:not(.app-ready) .depth-meter { display: none; }
 .story-copy--currents h2 { font-size: clamp(2.8rem, 5vw, 5.6rem); }
 .story-copy--relationship { right: var(--page-pad); top: 28%; text-align: right; }
 .story-copy--ascent { left: 50%; top: 19%; transform: translate3d(-50%, calc((1 - var(--presence)) * 2.5rem), 0); text-align: center; }
-.story-copy--finale { left: 50%; top: 20%; transform: translate3d(-50%, calc((1 - var(--presence)) * 2.5rem), 0); text-align: center; pointer-events: auto; }
+.story-copy--finale { --cloud-copy-swap: 0; left: 50%; top: 16%; transform: translate3d(-50%, calc((1 - var(--presence)) * 2.5rem), 0); text-align: center; pointer-events: auto; }
 .story-copy--finale h2 { margin-inline: auto; max-width: 13ch; }
-.story-copy--finale > p:not(.eyebrow) { margin: 1.2rem 0 0; font-size: clamp(1rem, 1.4vw, 1.3rem); }
+.finale-title-swap { display: grid; align-items: center; }
+.finale-title-swap__before, .finale-title-swap__after { grid-area: 1 / 1; will-change: opacity, transform, filter; }
+.finale-title-swap__before { opacity: calc(1 - var(--cloud-copy-swap)); transform: translate3d(0, calc(var(--cloud-copy-swap) * -1rem), 0); filter: blur(calc(var(--cloud-copy-swap) * 7px)); }
+.finale-title-swap__before h3 { max-width: 18ch; margin: 1.5rem auto 0; color: var(--ink); font-size: clamp(1.75rem, 3vw, 3.35rem); font-weight: 300; line-height: .98; letter-spacing: -.045em; text-wrap: balance; }
+.finale-title-swap__after { opacity: var(--cloud-copy-swap); transform: translate3d(0, calc((1 - var(--cloud-copy-swap)) * 1rem), 0); filter: blur(calc((1 - var(--cloud-copy-swap)) * 7px)); }
+.finale-title-swap__after span { color: var(--sea-glass); }
 .scroll-cue { display: flex; align-items: center; gap: .8rem; margin-top: 13vh; color: var(--dim) !important; font: 500 .58rem/1 var(--mono); letter-spacing: .16em; text-transform: uppercase; }
 .scroll-cue i { display: block; width: 1px; height: 2.8rem; background: linear-gradient(var(--foam) 0 25%, var(--line) 25%); }
 .primary-button { display: inline-flex; align-items: center; justify-content: space-between; gap: 2rem; min-width: 13.5rem; margin-top: 2.4rem; padding: 1rem 1.2rem; border-radius: 99px; background: var(--foam); color: var(--deep); font: 600 .68rem/1 var(--mono); letter-spacing: .1em; text-decoration: none; text-transform: uppercase; }

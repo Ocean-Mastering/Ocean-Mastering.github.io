@@ -110,7 +110,7 @@ Target and pitch change sparingly. Surface distance remains readable in every un
 
 ### Aerial cloud crossing
 
-Five horizontal raster cloud layers sit along the final camera trajectory at different elevations. They are front-facing from above, begin staging near `0.925`, and become visible as the camera physically rises through them. The purpose-built transparent cirrus texture and two CC0 alpha textures are reused at distinct scale, rotation, altitude, and opacity so the camera passes through successive wispy fields without repeating an obvious tile. No cloud SVGs, CSS cloud shapes, or sky-backed rectangles are used.
+Five horizontal raster cloud layers sit along the final camera trajectory at different elevations. They are front-facing from above, begin staging near `0.925`, and become visible as the camera physically rises through them. The first clearly visible camera crossing near `0.9685` drives the finale title crossfade from the two-line premise to “It reveals it.”, with only “reveals” carrying the sea-glass accent. The purpose-built transparent cirrus texture and two CC0 alpha textures are reused at distinct scale, rotation, altitude, and opacity so the camera passes through successive wispy fields without repeating an obvious tile. No cloud SVGs, CSS cloud shapes, or sky-backed rectangles are used.
 
 ### Handoff guard
 

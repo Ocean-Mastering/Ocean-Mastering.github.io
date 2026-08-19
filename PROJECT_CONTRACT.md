@@ -191,7 +191,7 @@ All ranges below describe one pinned scene. Exact curve values may be tuned; ran
 - The opening swell now has beautifully defined shape, body, internal movement, highlights, and preserved natural variation.
 - It does not become a storm, an absurd wall, or a “louder” cartoon.
 - The lone wave is understood as part of a vast coherent body of water.
-- Final copy: “Mastering doesn’t add the ocean. It reveals the depth that was already there.”
+- Finale copy begins as two title-weight thoughts—“Mastering doesn’t add the ocean.” and “It reveals the depth that was already there.”—then crossfades to “It reveals it.” at the first visible cloud crossing. Only “reveals” receives the light-blue accent.
 - Supporting thought: “Your music. Fully revealed.”
 - CTA: **START A MASTER**
 - Restrained ambient ocean and cloud drift may continue without new scroll input; the camera and copy remain settled.
@@ -263,7 +263,7 @@ No more than one primary thought is visible at a time. Text supplements the visu
 - Currents: “Every element changes everything around it.”
 - Mastering: “Nothing is isolated.”
 - Ascent: “Same music. Greater revelation.”
-- Finale: “Mastering doesn’t add the ocean. It reveals the depth that was already there.”
+- Finale: “Mastering doesn’t add the ocean.” / “It reveals the depth that was already there.” → “It reveals it.” at the first visible cloud crossing.
 
 Typography is editorial, restrained, and physically integrated into the composition.
 
