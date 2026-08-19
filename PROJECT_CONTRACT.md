@@ -191,7 +191,7 @@ All ranges below describe one pinned scene. Exact curve values may be tuned; ran
 - The opening swell now has beautifully defined shape, body, internal movement, highlights, and preserved natural variation.
 - It does not become a storm, an absurd wall, or a “louder” cartoon.
 - The lone wave is understood as part of a vast coherent body of water.
-- Finale copy begins as two title-weight thoughts—“Mastering doesn’t add the ocean.” and “It reveals the depth that was already there.”—then crossfades to “It reveals it.” at the first visible cloud crossing. Only “reveals” receives the light-blue accent.
+- Finale copy begins with “Mastering doesn’t add the ocean.” and crossfades to “It reveals it.” at the first visible cloud crossing. Only “reveals” receives the light-blue accent.
 - Supporting thought: “Your music. Fully revealed.”
 - CTA: **START A MASTER**
 - Restrained ambient ocean and cloud drift may continue without new scroll input; the camera and copy remain settled.
@@ -263,7 +263,7 @@ No more than one primary thought is visible at a time. Text supplements the visu
 - Currents: “Every element changes everything around it.”
 - Mastering: “Nothing is isolated.”
 - Ascent: “Same music. Greater revelation.”
-- Finale: “Mastering doesn’t add the ocean.” / “It reveals the depth that was already there.” → “It reveals it.” at the first visible cloud crossing.
+- Finale: “Mastering doesn’t add the ocean.” → “It reveals it.” at the first visible cloud crossing.
 
 Typography is editorial, restrained, and physically integrated into the composition.
 
@@ -382,6 +382,7 @@ Last updated: **2026-08-18, after extended-finale and full-content integration v
 - Reduced motion selects stable authored depth states rather than continuously moving the camera.
 - Chrome startup no longer depends on a chain of ES-module requests; `scripts/app.bundle.js` contains the locally vendored renderer and authored scene code in one deferred entry.
 - The final camera remains locked on one ocean target while rising to `+320m`, pitching downward, widening, and crossing five staged raster-cloud planes built from a generated transparent cirrus texture and two supporting CC0 alpha textures.
+- The deepest passage includes one subtle, fogged transparent jellyfish in the far volume; it drifts slowly and never becomes a featured subject. Particle saturation is slightly richer while the existing size and opacity falloff continues to preserve perceived depth.
 - The complete ten-track player, process, testimonials and submission drawer, services, technical practice, founder story, studio archive, project inquiry form, and sixteen-cover interactive credits wall now follow the story in the new light-blue/deep-ocean system.
 - A no-startup fallback now keeps the opening message and all practical content visible without the multi-screen pinned state.
 - Desktop `1280×720` and responsive mobile `390×844` browser passes retained the full story and rendered WebGL successfully.

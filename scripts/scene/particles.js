@@ -51,7 +51,7 @@ const fragmentShader = /* glsl */`
     vec2 point = gl_PointCoord - 0.5;
     float distanceToCenter = length(point);
     float alpha = smoothstep(0.5, 0.05, distanceToCenter) * vOpacity;
-    vec3 color = mix(vec3(0.20, 0.52, 0.94), vec3(0.82, 0.95, 1.0), vGlow);
+    vec3 color = mix(vec3(0.17, 0.54, 0.98), vec3(0.79, 0.95, 1.0), vGlow);
     gl_FragColor = vec4(color, alpha);
   }
 `;

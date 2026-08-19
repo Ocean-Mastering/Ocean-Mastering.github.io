@@ -35,6 +35,7 @@ scripts/
 │   ├── currents.js            volumetric current-density fields
 │   ├── pressure.js            slow deep-water displacement field
 │   ├── light-field.js         sun, caustics, beams, attenuation
+│   ├── deep-creature.js       restrained fogged jellyfish encounter
 │   └── cloud-field.js         transparent raster cloud crossing at altitude
 ├── copy-layer.js              one thought at a time from storyboard state
 └── site-interactions.js       audio player, forms, reveals, and credit dialog
@@ -138,6 +139,8 @@ Currents are volumetric density regions expressed by particle flow, faint transl
 ### Pressure
 
 Deep pressure is a very low-frequency world-space displacement applied across particles, current volumes, soft Fresnel pressure shells, and tiny camera offsets. It changes scale, not loudness.
+
+A single generated transparent jellyfish sprite occupies the far deep-water volume from roughly `0.58–0.845`. It is depth-tested, fogged, low-opacity, and animated only with slow drift, rotation, and bell-scale breathing, keeping the creature peripheral and discoverable rather than turning it into a focal event. Particle color receives a restrained saturation lift without changing the existing depth-based opacity and size falloff.
 
 ## Progressive enhancement
 

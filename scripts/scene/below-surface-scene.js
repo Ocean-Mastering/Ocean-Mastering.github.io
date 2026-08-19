@@ -5,6 +5,7 @@ import { createCurrents } from "./currents.js";
 import { createLightField } from "./light-field.js";
 import { createPressureField } from "./pressure.js";
 import { createCloudField } from "./cloud-field.js";
+import { createDeepCreature } from "./deep-creature.js";
 
 const skyVertexShader = /* glsl */`
   varying vec3 vDirection;
@@ -79,7 +80,8 @@ export function createBelowSurfaceScene(canvas, reducedMotion = false) {
   const light = createLightField();
   const pressure = createPressureField();
   const clouds = createCloudField();
-  scene.add(light.group, pressure.group, particles.points, currents.group, water.mesh, clouds.group);
+  const creature = createDeepCreature();
+  scene.add(light.group, pressure.group, creature.group, particles.points, currents.group, water.mesh, clouds.group);
 
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -122,6 +124,7 @@ export function createBelowSurfaceScene(canvas, reducedMotion = false) {
     currents.update(state, pixelRatio, ambientTime);
     light.update(state, ambientTime);
     pressure.update(state, ambientTime);
+    creature.update(state, ambientTime);
     clouds.update(state, ambientTime);
     renderer.render(scene, camera);
   }
@@ -132,6 +135,7 @@ export function createBelowSurfaceScene(canvas, reducedMotion = false) {
     currents.dispose();
     light.dispose();
     pressure.dispose();
+    creature.dispose();
     clouds.dispose();
     skyGeometry.dispose();
     skyMaterial.dispose();
