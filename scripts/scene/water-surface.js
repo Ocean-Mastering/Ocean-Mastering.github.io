@@ -40,6 +40,7 @@ const fragmentShader = /* glsl */`
   uniform float uReveal;
   uniform float uClarity;
   uniform float uStoryTime;
+  uniform float uDepth;
   varying vec3 vWorldPosition;
   varying float vHeight;
   varying float vCrest;
@@ -59,27 +60,29 @@ const fragmentShader = /* glsl */`
     caustic *= sin(vWorldPosition.z * 0.47 - vWorldPosition.x * 0.16 + uStoryTime * 0.31);
     caustic = pow(abs(caustic), 7.0) * uCaustic;
 
-    vec3 aboveDeep = mix(vec3(0.005, 0.055, 0.07), vec3(0.012, 0.13, 0.15), uReveal);
-    vec3 aboveLight = mix(vec3(0.08, 0.25, 0.27), vec3(0.24, 0.55, 0.51), uReveal);
+    vec3 aboveDeep = mix(vec3(0.004, 0.035, 0.10), vec3(0.008, 0.10, 0.24), uReveal);
+    vec3 aboveLight = mix(vec3(0.035, 0.24, 0.48), vec3(0.14, 0.52, 0.78), uReveal);
     vec3 above = mix(aboveDeep, aboveLight, diffuse * 0.58 + fresnel * 0.64);
-    above += vec3(0.62, 0.9, 0.84) * (sparkle * (0.36 + uReveal * 0.52) + vCrest * 0.045);
+    above += vec3(0.70, 0.90, 1.0) * (sparkle * (0.36 + uReveal * 0.52) + vCrest * 0.045);
 
-    vec3 belowDeep = vec3(0.006, 0.065, 0.09);
-    vec3 belowLight = mix(vec3(0.05, 0.25, 0.28), vec3(0.18, 0.54, 0.51), uClarity);
+    float abyss = smoothstep(0.12, 0.9, uDepth);
+    vec3 belowDeep = mix(vec3(0.006, 0.085, 0.22), vec3(0.001, 0.005, 0.026), abyss);
+    vec3 belowLight = mix(vec3(0.025, 0.34, 0.68), vec3(0.008, 0.075, 0.24), abyss);
+    belowLight = mix(belowLight * 0.72, belowLight, uClarity);
     vec3 below = mix(belowDeep, belowLight, fresnel * 0.54 + diffuse * 0.26);
-    below += vec3(0.18, 0.62, 0.56) * caustic * 0.2;
-    below += vec3(0.34, 0.73, 0.66) * sparkle * 0.2;
+    below += vec3(0.16, 0.55, 1.0) * caustic * mix(0.24, 0.08, abyss);
+    below += vec3(0.46, 0.78, 1.0) * sparkle * 0.22;
     float abyssDepth = smoothstep(12.0, 58.0, -cameraPosition.y);
     float deepTrace = sin(vWorldPosition.x * 0.11 + vWorldPosition.z * 0.045 - uStoryTime * 0.07);
     deepTrace *= sin(vWorldPosition.z * 0.09 - vWorldPosition.x * 0.035 + uStoryTime * 0.04);
     deepTrace = smoothstep(0.42, 0.92, deepTrace) * abyssDepth;
-    below += vec3(0.04, 0.16, 0.18) * abyssDepth * (0.42 + fresnel * 0.58);
-    below += vec3(0.12, 0.48, 0.44) * deepTrace * 0.16;
+    below += vec3(0.015, 0.065, 0.20) * abyssDepth * (0.42 + fresnel * 0.58);
+    below += vec3(0.07, 0.24, 0.62) * deepTrace * 0.14;
 
     float cameraSide = smoothstep(-0.22, 0.22, cameraPosition.y);
     vec3 color = mix(below, above, cameraSide);
     float distanceHaze = clamp(length(cameraPosition - vWorldPosition) / 125.0, 0.0, 1.0);
-    vec3 hazeColor = mix(vec3(0.003, 0.025, 0.04), vec3(0.006, 0.07, 0.085), 1.0 - uSubmersion);
+    vec3 hazeColor = mix(vec3(0.001, 0.009, 0.04), vec3(0.008, 0.09, 0.22), (1.0 - uSubmersion) * (1.0 - abyss));
     color = mix(color, hazeColor, distanceHaze * mix(0.72, 0.28, uClarity));
     gl_FragColor = vec4(color, 1.0);
   }
@@ -95,7 +98,8 @@ export function createWaterSurface(quality) {
     uReveal: { value: 0 },
     uSubmersion: { value: 0 },
     uCaustic: { value: 0 },
-    uClarity: { value: 0.2 }
+    uClarity: { value: 0.2 },
+    uDepth: { value: 0 }
   };
   const material = new THREE.ShaderMaterial({
     uniforms,
@@ -108,14 +112,15 @@ export function createWaterSurface(quality) {
   mesh.position.z = -30;
   mesh.frustumCulled = false;
 
-  function update(state, finaleTime = 0) {
-    uniforms.uStoryTime.value = state.storyTime + finaleTime;
+  function update(state, ambientTime = 0) {
+    uniforms.uStoryTime.value = state.storyTime + ambientTime * 0.72;
     uniforms.uAmplitude.value = state.surface.amplitude;
     uniforms.uDetail.value = state.surface.detail;
     uniforms.uReveal.value = state.surface.reveal;
     uniforms.uSubmersion.value = state.camera.submersion;
     uniforms.uCaustic.value = state.atmosphere.caustic;
     uniforms.uClarity.value = state.atmosphere.clarity;
+    uniforms.uDepth.value = Math.min(1, Math.max(0, -state.camera.y / 64));
   }
 
   function dispose() {

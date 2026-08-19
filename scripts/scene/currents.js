@@ -55,8 +55,8 @@ const fragmentShader = /* glsl */`
     vec2 point = gl_PointCoord - 0.5;
     float radius = length(point);
     float alpha = smoothstep(0.5, 0.0, radius) * vOpacity * uVolumeOpacity;
-    vec3 low = vec3(0.16, 0.52, 0.56);
-    vec3 high = vec3(0.47, 0.86, 0.77);
+    vec3 low = vec3(0.10, 0.36, 0.78);
+    vec3 high = vec3(0.38, 0.76, 1.0);
     gl_FragColor = vec4(mix(low, high, vLane), alpha);
   }
 `;
@@ -118,9 +118,9 @@ export function createCurrents(quality) {
   const group = new THREE.Group();
   group.add(volume, detail);
 
-  function update(state, pixelRatio) {
+  function update(state, pixelRatio, ambientTime = 0) {
     for (const uniforms of [volumeUniforms, detailUniforms]) {
-      uniforms.uStoryTime.value = state.storyTime;
+      uniforms.uStoryTime.value = state.storyTime + ambientTime * 0.38;
       uniforms.uVisibility.value = state.currents.visibility;
       uniforms.uTurbulence.value = state.currents.turbulence;
       uniforms.uCoherence.value = state.currents.coherence;

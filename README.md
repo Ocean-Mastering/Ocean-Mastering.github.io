@@ -1,6 +1,6 @@
 # Ocean Mastering — Below the Surface
 
-A static, procedural WebGL website for Ocean Mastering. The homepage is one continuous scroll-driven descent beneath an ocean surface and return through the same water.
+A static, procedural WebGL website for Ocean Mastering. The homepage is one continuous scroll-driven descent beneath an ocean surface and return through the same water. A damped playhead softens wheel input while an independent ambient clock keeps the ocean alive at rest.
 
 ## Local preview
 
@@ -31,7 +31,8 @@ pnpm dlx esbuild@0.25.9 scripts/main.js --bundle --format=iife --target=chrome10
 - `index.html` — semantic page, fallback visual, sparse story copy, practical content
 - `styles/site.css` — responsive editorial presentation and accessibility states
 - `scripts/storyboard.js` — authoritative normalized eleven-shot choreography
-- `scripts/scene/` — water, particles, currents, pressure, light, and camera renderer
+- `scripts/scene/` — depth-responsive Atlantic-blue water, particles, currents, pressure, light, and camera renderer
+- `scripts/scroll-playhead.js` — approximately two-second critically damped convergence around native scroll input
 - `scripts/app.bundle.js` — self-contained browser entry used by `index.html`
 - `assets/vendor/` — locally pinned Three.js runtime and license
 - `PROJECT_CONTRACT.md` — authoritative creative and technical contract

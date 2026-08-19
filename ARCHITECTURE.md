@@ -1,6 +1,6 @@
 # BELOW THE SURFACE — Technical Architecture
 
-Last updated: 2026-08-18 after prototype validation
+Last updated: 2026-08-18 after depth-palette and inertial-motion validation
 
 ## Purpose
 
@@ -22,7 +22,7 @@ index.html
 scripts/
 ├── app.bundle.js              committed self-contained browser runtime
 ├── main.js                    lifecycle and capability boot
-├── scroll-playhead.js         native scroll → exact normalized progress
+├── scroll-playhead.js         native scroll target → damped normalized progress
 ├── storyboard.js              authoritative shot ranges and interpolated state
 ├── scene/
 │   ├── below-surface-scene.js renderer, camera, fog, scene lifecycle
@@ -62,11 +62,12 @@ The renderer receives one immutable state object derived from progress:
 
 - Use native window scrolling.
 - Calculate exact target progress from cinematic-region top and travel distance.
-- Camera and all major physical state render directly from target progress so the scene stops and reverses with scroll.
-- A very small critically damped presentation lag may soften wheel input, but it must never make the visitor feel disconnected from the playhead and must converge rapidly.
+- Camera and all major narrative state follow that target through a critically damped spring. Acceleration eases in; convergence eases out over roughly 1.5–2 seconds after input ends.
+- Keep the response monotonic and close enough to its target that the visitor retains clear authorship over the playhead.
 - Copy uses the same state and cannot drift on an independent timeline.
-- `storyTime = progress × STORY_DURATION` drives all wave, current, particle, pressure, and caustic phases.
-- Autonomous elapsed time is disabled throughout the journey; an optional negligible finale drift can blend in after `0.985`.
+- `storyTime = progress × STORY_DURATION` drives reversible narrative phase.
+- A restrained monotonic ambient clock is added at system-specific rates to wave, current, particle, pressure, and light phases. It never advances the camera or copy, but it prevents the ocean from freezing when scroll settles.
+- Reduced-motion mode bypasses spring travel and disables the ambient clock, retaining the authored stable depth states.
 
 ## Scene model
 

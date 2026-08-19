@@ -51,7 +51,7 @@ const fragmentShader = /* glsl */`
     vec2 point = gl_PointCoord - 0.5;
     float distanceToCenter = length(point);
     float alpha = smoothstep(0.5, 0.05, distanceToCenter) * vOpacity;
-    vec3 color = mix(vec3(0.29, 0.63, 0.64), vec3(0.78, 0.98, 0.91), vGlow);
+    vec3 color = mix(vec3(0.20, 0.52, 0.94), vec3(0.82, 0.95, 1.0), vGlow);
     gl_FragColor = vec4(color, alpha);
   }
 `;
@@ -91,8 +91,8 @@ export function createParticles(quality) {
   const points = new THREE.Points(geometry, material);
   points.frustumCulled = false;
 
-  function update(state, pixelRatio) {
-    uniforms.uStoryTime.value = state.storyTime;
+  function update(state, pixelRatio, ambientTime = 0) {
+    uniforms.uStoryTime.value = state.storyTime + ambientTime * 0.46;
     uniforms.uDensity.value = state.particles.density;
     uniforms.uSpeed.value = state.particles.speed;
     uniforms.uShimmer.value = state.particles.shimmer;

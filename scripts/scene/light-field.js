@@ -12,7 +12,7 @@ export function createLightField() {
   ];
   positions.forEach(([x, y, z, rotation], index) => {
     const material = new THREE.MeshBasicMaterial({
-      color: index % 2 ? 0x65c5c0 : 0x4d9fa6,
+      color: index % 2 ? 0x6ccaff : 0x438ee8,
       transparent: true,
       opacity: 0,
       side: THREE.DoubleSide,
@@ -27,10 +27,10 @@ export function createLightField() {
     beams.push(beam);
   });
 
-  function update(state) {
+  function update(state, ambientTime = 0) {
     beams.forEach((beam, index) => {
       beam.material.opacity = state.atmosphere.beam * (0.017 + index * 0.004) * state.atmosphere.clarity;
-      beam.rotation.y = state.storyTime * 0.0025 + index * 0.6;
+      beam.rotation.y = (state.storyTime + ambientTime * 0.45) * 0.0025 + index * 0.6;
     });
   }
 

@@ -1,13 +1,20 @@
 import { clamp } from "./storyboard.js";
 
 export class ScrollPlayhead {
-  constructor(section, onProgress) {
+  constructor(section, onProgress, options = {}) {
     this.section = section;
     this.onProgress = onProgress;
     this.progress = 0;
-    this.scheduled = false;
-    this.boundSchedule = this.schedule.bind(this);
-    this.boundUpdate = this.update.bind(this);
+    this.targetProgress = 0;
+    this.velocity = 0;
+    this.active = true;
+    this.frame = 0;
+    this.lastTime = 0;
+    this.elapsed = 0;
+    this.continuous = options.continuous ?? true;
+    this.spring = options.spring ?? 4;
+    this.boundSample = this.sample.bind(this);
+    this.boundTick = this.tick.bind(this);
   }
 
   read() {
@@ -19,27 +26,65 @@ export class ScrollPlayhead {
     return { progress, active };
   }
 
-  update() {
-    this.scheduled = false;
+  sample() {
     const next = this.read();
-    this.progress = next.progress;
-    this.onProgress(next.progress, next.active);
+    this.targetProgress = next.progress;
+    this.active = next.active;
+    this.ensureFrame();
   }
 
-  schedule() {
-    if (this.scheduled) return;
-    this.scheduled = true;
-    requestAnimationFrame(this.boundUpdate);
+  ensureFrame() {
+    if (this.frame || document.hidden) return;
+    this.frame = requestAnimationFrame(this.boundTick);
+  }
+
+  tick(time) {
+    this.frame = 0;
+    const delta = this.lastTime ? Math.min(0.05, (time - this.lastTime) / 1000) : 1 / 60;
+    this.lastTime = time;
+    if (this.continuous) this.elapsed += delta;
+
+    if (this.continuous) {
+      const displacement = this.targetProgress - this.progress;
+      const acceleration = displacement * this.spring ** 2 - this.velocity * this.spring * 2;
+      this.velocity += acceleration * delta;
+      this.progress = clamp(this.progress + this.velocity * delta);
+
+      if (Math.abs(displacement) < 0.000015 && Math.abs(this.velocity) < 0.000015) {
+        this.progress = this.targetProgress;
+        this.velocity = 0;
+      }
+    } else {
+      this.progress = this.targetProgress;
+      this.velocity = 0;
+    }
+
+    this.onProgress(this.progress, this.active, {
+      elapsed: this.elapsed,
+      velocity: this.velocity,
+      settled: this.progress === this.targetProgress && this.velocity === 0
+    });
+
+    if (this.active && this.continuous) this.ensureFrame();
   }
 
   start() {
-    addEventListener("scroll", this.boundSchedule, { passive: true });
-    addEventListener("resize", this.boundSchedule, { passive: true });
-    this.update();
+    const initial = this.read();
+    this.progress = initial.progress;
+    this.targetProgress = initial.progress;
+    this.active = initial.active;
+    addEventListener("scroll", this.boundSample, { passive: true });
+    addEventListener("resize", this.boundSample, { passive: true });
+    addEventListener("visibilitychange", this.boundSample, { passive: true });
+    this.ensureFrame();
   }
 
   stop() {
-    removeEventListener("scroll", this.boundSchedule);
-    removeEventListener("resize", this.boundSchedule);
+    removeEventListener("scroll", this.boundSample);
+    removeEventListener("resize", this.boundSample);
+    removeEventListener("visibilitychange", this.boundSample);
+    cancelAnimationFrame(this.frame);
+    this.frame = 0;
+    this.lastTime = 0;
   }
 }

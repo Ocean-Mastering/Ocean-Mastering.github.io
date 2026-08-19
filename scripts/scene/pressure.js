@@ -19,7 +19,7 @@ const fragmentShader = /* glsl */`
     vec3 viewDirection = normalize(cameraPosition - vWorldPosition);
     float edge = pow(1.0 - abs(dot(normalize(vNormal), viewDirection)), 4.2);
     float alpha = smoothstep(0.02, 0.92, edge) * uOpacity;
-    gl_FragColor = vec4(vec3(0.38, 0.92, 0.86), alpha);
+    gl_FragColor = vec4(vec3(0.34, 0.72, 1.0), alpha);
   }
 `;
 
@@ -46,9 +46,9 @@ export function createPressureField() {
     shells.push(shell);
   }
 
-  function update(state) {
+  function update(state, ambientTime = 0) {
     shells.forEach((shell, index) => {
-      const pulse = Math.sin(state.storyTime * 0.075 + index * 1.2) * 0.5 + 0.5;
+      const pulse = Math.sin((state.storyTime + ambientTime * 0.42) * 0.075 + index * 1.2) * 0.5 + 0.5;
       const scale = 8 + pulse * 25 + index * 4.5;
       shell.scale.setScalar(scale);
       shell.material.uniforms.uOpacity.value = state.pressure * (0.016 + index * 0.0035);

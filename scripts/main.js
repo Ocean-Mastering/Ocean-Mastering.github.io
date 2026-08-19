@@ -17,42 +17,15 @@ document.documentElement.dataset.quality = ocean.quality;
 document.querySelector("[data-year]").textContent = String(new Date().getFullYear());
 
 let currentState = getStoryState(0);
-let currentActive = true;
-let finaleFrame = 0;
-let finaleStart = 0;
 
-function stopFinale() {
-  cancelAnimationFrame(finaleFrame);
-  finaleFrame = 0;
-  finaleStart = 0;
-}
-
-function finaleLoop(time) {
-  if (!currentActive || currentState.progress < 0.985 || document.hidden) {
-    stopFinale();
-    return;
-  }
-  if (!finaleStart) finaleStart = time;
-  ocean.render(currentState, (time - finaleStart) / 1000);
-  finaleFrame = requestAnimationFrame(finaleLoop);
-}
-
-function ensureFinale() {
-  if (finaleFrame || currentState.progress < 0.985 || !currentActive) return;
-  finaleFrame = requestAnimationFrame(finaleLoop);
-}
-
-const playhead = new ScrollPlayhead(root, (progress, active) => {
+const playhead = new ScrollPlayhead(root, (progress, active, motion) => {
   const sceneProgress = reducedMotion ? getReducedMotionProgress(progress) : progress;
   currentState = getStoryState(sceneProgress);
-  currentActive = active;
   const afterStoryTop = root.offsetTop + root.offsetHeight;
   document.querySelector("[data-site-header]")?.classList.toggle("is-light", scrollY >= afterStoryTop - 1);
   copyLayer.update(currentState);
-  ocean.render(currentState, 0);
-  if (!reducedMotion && progress >= 0.985) ensureFinale();
-  else stopFinale();
-});
+  if (active) ocean.render(currentState, reducedMotion ? 0 : motion.elapsed);
+}, { continuous: !reducedMotion, spring: 4 });
 
 document.documentElement.classList.add("app-ready");
 playhead.start();
@@ -68,7 +41,6 @@ addEventListener("resize", () => {
 
 addEventListener("pagehide", event => {
   playhead.stop();
-  stopFinale();
   if (!event.persisted) ocean.dispose();
 });
 

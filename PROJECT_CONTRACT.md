@@ -211,7 +211,7 @@ Narrative state must live in one explicit configuration module. Every shot defin
 
 Avoid unexplained magic numbers scattered across render modules. A pure function should be able to derive the complete scene state from `progress`, viewport, quality tier, and reduced-motion preference.
 
-Major animation phase must use a scrubbed narrative clock such as `storyTime = progress × duration`, so stopping or reversing scroll stops or reverses the physical story. Autonomous time may be used only for negligible final-state breathing and non-narrative focus affordances.
+Major narrative phase uses a scrubbed clock such as `storyTime = progress × duration`, so reversing scroll reverses the physical story. Presentation follows exact scroll position through a critically damped response that visibly eases to rest over roughly 1.5–2 seconds. A separate, restrained ambient clock keeps waves, suspended matter, currents, light, and pressure alive after narrative travel settles; the ocean must never look paused.
 
 ## Camera principles
 
@@ -280,8 +280,9 @@ Preserve verified factual content from the current site, including the founder s
 
 ## Visual language
 
-- near-black, midnight, and blue-black water
-- sparse luminous cyan/sea-glass highlights
+- near-black, midnight, Atlantic blue, and blue-black water
+- shallow water may lean toward a luminous Pacific blue, while increasing depth must progressively absorb light into saturated navy and near-black abyssal blue
+- sparse luminous ice-blue and silver-blue highlights
 - subtle silver reflection
 - selective richer color during ascent and reveal
 - stylized-real, tactile water rather than photorealism at any cost
