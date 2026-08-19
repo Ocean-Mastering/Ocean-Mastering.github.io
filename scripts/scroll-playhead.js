@@ -62,6 +62,7 @@ export class ScrollPlayhead {
     this.onProgress(this.progress, this.active, {
       elapsed: this.elapsed,
       velocity: this.velocity,
+      targetProgress: this.targetProgress,
       settled: this.progress === this.targetProgress && this.velocity === 0
     });
 
@@ -76,6 +77,13 @@ export class ScrollPlayhead {
     addEventListener("scroll", this.boundSample, { passive: true });
     addEventListener("resize", this.boundSample, { passive: true });
     addEventListener("visibilitychange", this.boundSample, { passive: true });
+    this.ensureFrame();
+  }
+
+  finish() {
+    this.progress = 1;
+    this.targetProgress = 1;
+    this.velocity = 0;
     this.ensureFrame();
   }
 

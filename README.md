@@ -32,11 +32,15 @@ pnpm dlx esbuild@0.25.9 scripts/main.js --bundle --format=iife --target=chrome10
 - `styles/site.css` — responsive editorial presentation and accessibility states
 - `scripts/storyboard.js` — authoritative normalized eleven-shot choreography
 - `scripts/scene/` — depth-responsive Atlantic-blue water, particles, currents, pressure, light, and camera renderer
-- `scripts/scene/cloud-field.js` — three scroll-revealed transparent raster cloud layers for the final aerial crossing
+- `scripts/scene/cloud-field.js` — five scroll-revealed transparent raster cloud layers for the extended aerial crossing
 - `scripts/scroll-playhead.js` — approximately two-second critically damped convergence around native scroll input
+- `scripts/site-interactions.js` — first-party ocean player, reveal observer, mailto forms, and interactive credit dialog
 - `scripts/app.bundle.js` — self-contained browser entry used by `index.html`
 - `assets/vendor/` — locally pinned Three.js runtime and license
 - `assets/clouds/` — generated cirrus texture, supporting CC0 alpha textures, and provenance
+- `assets/audio/` — ten locally hosted mastered releases from the former source-site player
+- `assets/credits/` and `assets/studio/` — the complete previous-project wall plus founder/studio media
+- `assets/SOURCE_ASSETS.md` — migration provenance for source-site media
 - `PROJECT_CONTRACT.md` — authoritative creative and technical contract
 - `ARCHITECTURE.md` — implementation model and deployment target
 

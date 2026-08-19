@@ -78,7 +78,7 @@ The experience is oceanic and less overtly technological than the superseded ver
 11. Mastering changes relationships between existing currents. It never replaces them, erases complexity, or forces them into mechanical uniformity.
 12. The mastered result remains complex, dynamic, dimensional, naturally varied, and alive. It is not merely larger or louder.
 13. The visual story must remain legible with all marketing copy hidden.
-14. All graphics are newly authored procedural WebGL, inline SVG, or CSS. Never reuse the legacy Ocean Mastering logo, cover art, Wix graphics, or studio photography.
+14. The visual and interaction system is newly authored procedural WebGL, inline SVG, and CSS. Verified source-site audio, cover art, founder photography, and studio photography may appear as content by explicit owner direction, but the legacy logo treatment, Wix design, and green/teal scheme are prohibited.
 15. The silent visual narrative is complete on its own. Audio never autoplays and is not required for the cinematic sequence.
 16. Mobile retains the same descent, depth, currents, pressure, relationship, ascent, and reveal.
 17. Reduced-motion, keyboard access, semantic content, fallback visuals, and performance are first-class requirements.
@@ -187,7 +187,7 @@ All ranges below describe one pinned scene. Exact curve values may be tuned; ran
 
 - Camera continues the existing rising jib move and pulls rapidly backward while remaining focally locked on the same distant patch of ocean.
 - Increasing altitude, downward pitch, and field of view reveal more and more of the same water without exposing the edge of a finite plane.
-- The camera physically crosses three thin transparent raster cloud layers, including a purpose-built cirrus PNG, before reaching a high aerial view.
+- The camera physically crosses five thin transparent raster cloud layers, including a purpose-built cirrus PNG, before reaching a high aerial view.
 - The opening swell now has beautifully defined shape, body, internal movement, highlights, and preserved natural variation.
 - It does not become a storm, an absurd wall, or a “louder” cartoon.
 - The lone wave is understood as part of a vast coherent body of water.
@@ -289,7 +289,7 @@ Preserve verified factual content from the current site, including the founder s
 - subtle silver reflection
 - selective richer color during ascent and reveal
 - stylized-real, tactile water rather than photorealism at any cost
-- no legacy graphic assets
+- no legacy Wix graphic system or green/teal color scheme; verified project, founder, and studio media may appear inside the new blue interface
 - no remote stock or Wix imagery
 
 ## Technical architecture requirements
@@ -352,7 +352,7 @@ If instead the recording reads as headline, fade, paragraph, ocean image, headli
 - **2026-08-18:** Build the new scene from a true above/below ocean camera model with one persistent double-sided water surface, procedural depth layers, and scroll-derived particle/current fields.
 - **2026-08-18:** Major narrative phase uses a damped scroll playhead, while a separate restrained ambient clock keeps the ocean alive without moving camera or copy.
 - **2026-08-18:** The opening sky is full Caribbean daylight. The finale continues the focal-locked jib into a high aerial pullout and physically crosses transparent raster cirrus layers; cloud SVGs are prohibited.
-- **2026-08-18:** Do not migrate legacy visual assets or the inaccurate standards claim.
+- **2026-08-18:** Do not migrate the legacy visual system or inaccurate standards claim. A later explicit owner direction authorizes the complete audio, credit-cover, founder, and studio-media archive as content inside the new Caribbean/deep-ocean interface.
 - **2026-08-18:** Three.js `0.185.1` is vendored locally with its license; there is no runtime CDN or package build step.
 - **2026-08-18:** The replacement uses one displaced double-sided water plane, deterministic depth particles, soft particulate current volumes, deep pressure shells, procedural light fields, and a vertically dominant camera path.
 - **2026-08-18:** The visual QA query `?visual-only=1` hides all interface and marketing copy for the silent-story test. `?reduced-motion=1` exposes the stable-state accessibility mode for deterministic testing.
@@ -360,7 +360,7 @@ If instead the recording reads as headline, fade, paragraph, ocean image, headli
 
 ## Current implementation state
 
-Last updated: **2026-08-18, after Caribbean-daylight and aerial-cloud validation**
+Last updated: **2026-08-18, after extended-finale and full-content integration validation**
 
 ### Complete and still valid
 
@@ -373,15 +373,16 @@ Last updated: **2026-08-18, after Caribbean-daylight and aerial-cloud validation
 - This contract now records **BELOW THE SURFACE** as authoritative.
 - The superseded homepage implementation and its media/dependency assets have been removed from the working tree.
 - `ARCHITECTURE.md` now defines the replacement continuous above/below-water scene.
-- The replacement homepage is implemented from scratch as one `820svh` cinematic region with one sticky WebGL scene.
+- The replacement homepage is implemented from scratch as one `1050svh` cinematic region (`980svh` on mobile) with one sticky WebGL scene and a guarded handoff runway.
 - All eleven normalized story shots are centralized in `scripts/storyboard.js`.
 - The camera physically crosses the same displaced water surface during descent and emergence.
 - Near-surface shimmer, volumetric particulate currents, deep pressure, coherence, physical turn, ascent, and final reveal are implemented as one connected space.
-- Sparse copy, restrained navigation, semantic transcript, non-WebGL inline-SVG fallback, skip link, services/about/contact handoff, and light-background header mode are implemented.
+- Sparse cinematic copy, restrained navigation, semantic transcript, non-WebGL inline-SVG fallback, skip link, guarded full-content handoff, and light-background header mode are implemented.
 - Adaptive high, balanced, and mobile GPU quality tiers are implemented.
 - Reduced motion selects stable authored depth states rather than continuously moving the camera.
 - Chrome startup no longer depends on a chain of ES-module requests; `scripts/app.bundle.js` contains the locally vendored renderer and authored scene code in one deferred entry.
-- The final camera remains locked on one ocean target while rising to `+190m`, pitching downward, widening, and crossing a generated transparent cirrus texture plus two supporting CC0 alpha layers.
+- The final camera remains locked on one ocean target while rising to `+320m`, pitching downward, widening, and crossing five staged raster-cloud planes built from a generated transparent cirrus texture and two supporting CC0 alpha textures.
+- The complete ten-track player, process, testimonials and submission drawer, services, technical practice, founder story, studio archive, project inquiry form, and sixteen-cover interactive credits wall now follow the story in the new light-blue/deep-ocean system.
 - A no-startup fallback now keeps the opening message and all practical content visible without the multi-screen pinned state.
 - Desktop `1280×720` and responsive mobile `390×844` browser passes retained the full story and rendered WebGL successfully.
 - The text-hidden sequence was inspected across the full storyboard. Reverse scrubbing reconstructed the exact prior captured frame, and stopped reduced-motion states remained pixel-stable within their shot.
@@ -393,7 +394,7 @@ Last updated: **2026-08-18, after Caribbean-daylight and aerial-cloud validation
 ### Remaining
 
 1. Validate performance and touch behavior on at least one physical iPhone and one physical Android device.
-2. Replace the temporary Work / Credits note with verified real credits and optional listening examples after user review.
+2. Confirm the three source-gallery projects whose old Wix metadata exposed only generic filenames, and replace their archive labels if better titles are available.
 3. Create `Ocean-Mastering/Ocean-Mastering.github.io`, push `main`, enable/verify organization Pages, and only then configure any custom domain.
 4. Perform final public-URL smoke tests, metadata/share-card work, and launch QA.
 

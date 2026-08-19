@@ -73,11 +73,10 @@ The current page claims “ISO 12845:2018 compliance.” This must not be migrat
 
 ### Asset policy
 
-- Do not migrate the current logo, cover artwork, founder/studio photography, Wix imagery, or any other legacy visual asset.
-- Author new graphics inline using procedural WebGL, SVG, and CSS so the visual system is native to this narrative.
 - Preserve the ten real audio examples as locally hosted content in an accessible first-party player.
-- Project names and factual business information may identify the body of work, but their site graphics must be original Ocean Mastering interface art rather than substitute album covers.
-- Do not reproduce Wix scaffolding, template markup, or third-party player code.
+- Per the owner's 2026-08-18 direction, migrate all sixteen credit covers plus the founder and studio photography so the replacement includes the complete body of source-site work.
+- The migrated media remains content inside a newly authored interface. Do not reproduce Wix scaffolding, template markup, the former logo treatment, third-party player code, or the old green/teal color scheme.
+- Author the surrounding graphics, layout, interaction system, and ocean player in the replacement site's Caribbean/deep-ocean visual language.
 
 ## Concept-reference audit
 
@@ -122,4 +121,4 @@ Source: `https://github.com/Ocean-Mastering`
 - The new homepage will be the narrative experience described in the contract.
 - About, work/listening, process/services, and contact information will remain reachable through semantic sections and a persistent navigation layer; separate detail routes can be added after the core story proves itself.
 - The direct email CTA remains the reliable baseline. A static-site contact form requires a deliberate third-party endpoint and will not be silently simulated.
-- The entire visual system—not only the first prototype—will remain newly authored inline. There is no legacy graphic-asset migration phase.
+- The visual and interaction system remains newly authored. Verified source-site audio, credits, founder, and studio media are locally migrated as content by explicit owner request.

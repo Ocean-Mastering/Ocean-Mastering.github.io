@@ -7,7 +7,7 @@
     <meta name="description" content="Ocean Mastering listens beneath the surface—revealing the depth, relationship, and movement already inside your music.">
     <title>Ocean Mastering — Below the Surface</title>
     <link rel="stylesheet" href="styles/site.css">
-    <script defer src="scripts/app.bundle.js?v=20260818-7"></script>
+    <script defer src="scripts/app.bundle.js?v=20260818-11"></script>
   </head>
   <body>
     <a class="skip-link" href="#after-story">Skip the cinematic story</a>
@@ -20,8 +20,9 @@
         <span><b>OCEAN</b><small>MASTERING</small></span>
       </a>
       <nav aria-label="Primary navigation">
+        <a href="#listen">Listen</a>
         <a href="#services">Services</a>
-        <a href="#work">Work / Credits</a>
+        <a href="#credits">Credits</a>
         <a href="#about">About</a>
         <a class="nav-cta" href="#contact">Start a master</a>
       </nav>
@@ -110,41 +111,213 @@
       </section>
 
       <section class="after-story" id="after-story">
-        <div class="after-story__intro" id="services">
+        <div class="after-story__intro" data-reveal>
           <p class="eyebrow">The final step in record completion</p>
           <h2>Your music.<br><em>Fully revealed.</em></h2>
-          <p>Ocean Mastering brings clarity, depth, and reliable translation to finished mixes without erasing their movement or identity.</p>
+          <p>Ocean Mastering brings clarity, depth, and reliable translation to finished mixes without erasing their movement, emotion, or identity.</p>
         </div>
 
-        <div class="service-line" aria-label="Core services">
-          <article><span>01</span><h3>Deep listening</h3><p>Every project begins with the relationships already inside the mix.</p></article>
-          <article><span>02</span><h3>Coherent depth</h3><p>Dynamics, tone, width, and sequence move as one without becoming uniform.</p></article>
-          <article><span>03</span><h3>Trusted translation</h3><p>The record remains itself across rooms, systems, and release formats.</p></article>
-        </div>
+        <section class="listening-room dark-section" id="listen" aria-labelledby="listen-heading">
+          <div class="section-heading" data-reveal>
+            <p class="eyebrow">Ten mastered releases · One uninterrupted current</p>
+            <h2 id="listen-heading">The sound in your head,<br><em>delivered.</em></h2>
+            <p>Real projects mastered at Ocean. Select a track, press play, and listen for depth, motion, and translation.</p>
+          </div>
 
-        <div class="utility-row" id="work">
-          <p class="eyebrow">Work / Credits</p>
-          <p>Selected listening examples and verified credits are being curated for the launch version.</p>
-        </div>
+          <div class="ocean-player" data-ocean-player data-reveal>
+            <audio preload="metadata" data-player-audio src="assets/audio/01-city-of-the-violet-crown.mp3"></audio>
 
-        <div class="utility-row" id="about">
-          <p class="eyebrow">Founded in Austin · 2009</p>
-          <p>J Fi founded Ocean Mastering to help records become more fully themselves. Hundreds of projects later, the work still begins with listening.</p>
-        </div>
+            <div class="ocean-player__visual" aria-hidden="true">
+              <img src="assets/player/ocean-wave-cover.png" alt="" width="1536" height="1024">
+              <canvas data-player-visualizer></canvas>
+              <span class="ocean-player__depth">Mastered<br>below the surface</span>
+              <i class="ocean-player__ring ocean-player__ring--one"></i>
+              <i class="ocean-player__ring ocean-player__ring--two"></i>
+            </div>
+
+            <div class="ocean-player__console">
+              <div class="ocean-player__now">
+                <p><span data-player-index>01</span> / 10 · Now flowing</p>
+                <h3 data-player-title>City of the Violet Crown</h3>
+                <p data-player-artist>JFI</p>
+              </div>
+
+              <div class="ocean-player__timeline">
+                <span data-player-current>0:00</span>
+                <input type="range" min="0" max="1000" value="0" step="1" aria-label="Seek through the current track" data-player-seek>
+                <span data-player-duration>3:57</span>
+              </div>
+
+              <div class="ocean-player__controls">
+                <button type="button" data-player-action="previous" aria-label="Previous track"><span aria-hidden="true">↤</span></button>
+                <button class="ocean-player__play" type="button" data-player-action="play" aria-label="Play City of the Violet Crown"><span data-player-icon aria-hidden="true">▶</span></button>
+                <button type="button" data-player-action="next" aria-label="Next track"><span aria-hidden="true">↦</span></button>
+                <label class="ocean-player__volume">Volume <input type="range" min="0" max="1" value="0.82" step="0.01" data-player-volume></label>
+              </div>
+
+              <ol class="track-list" aria-label="Mastered releases">
+                <li><button type="button" class="is-current" aria-current="true" data-track-index="0"><span>01</span><b>City of the Violet Crown<small>JFI</small></b><time>3:57</time></button></li>
+                <li><button type="button" data-track-index="1"><span>02</span><b>AC Current<small>Randomonium Studios</small></b><time>2:54</time></button></li>
+                <li><button type="button" data-track-index="2"><span>03</span><b>Flat Top Mash<small>Origami Pigeon</small></b><time>2:33</time></button></li>
+                <li><button type="button" data-track-index="3"><span>04</span><b>You Keep Going<small>Mood Craft</small></b><time>2:29</time></button></li>
+                <li><button type="button" data-track-index="4"><span>05</span><b>Perfect<small>JFI</small></b><time>4:05</time></button></li>
+                <li><button type="button" data-track-index="5"><span>06</span><b>Set the World On Fire<small>Ferrairi Tzar</small></b><time>3:02</time></button></li>
+                <li><button type="button" data-track-index="6"><span>07</span><b>Jazzify<small>Jonathan Boyle</small></b><time>2:36</time></button></li>
+                <li><button type="button" data-track-index="7"><span>08</span><b>Chris Phaze<small>The Game On</small></b><time>2:21</time></button></li>
+                <li><button type="button" data-track-index="8"><span>09</span><b>Zincon<small>HVB Music Group</small></b><time>2:24</time></button></li>
+                <li><button type="button" data-track-index="9"><span>10</span><b>Like Bubble Gum<small>Where Is Lulu</small></b><time>2:22</time></button></li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <section class="process-section" id="services" aria-labelledby="process-heading">
+          <div class="process-section__lead" data-reveal>
+            <p class="eyebrow">Our process</p>
+            <h2 id="process-heading">The technical<br><em>final step.</em></h2>
+            <p>We bridge the gap between a finished mix and a professional release. Dynamic range, frequency balance, width, and sequence are treated as relationships—not isolated problems.</p>
+          </div>
+          <div class="process-values" aria-label="Core mastering values">
+            <article data-reveal><span>01</span><svg viewBox="0 0 100 60" aria-hidden="true"><path d="M10 48 35 12l22 36 33-25"/></svg><h3>Precision</h3><p>Detailed decisions in service of the complete record.</p></article>
+            <article data-reveal><span>02</span><svg viewBox="0 0 100 60" aria-hidden="true"><path d="M6 30h18l6-18 9 36 9-29 8 23 9-34 8 22h21"/></svg><h3>Fidelity</h3><p>Greater clarity without erasing the artist’s intent.</p></article>
+            <article data-reveal><span>03</span><svg viewBox="0 0 100 60" aria-hidden="true"><circle cx="50" cy="30" r="23"/><path d="M27 30h46M50 7c10 11 10 35 0 46M50 7c-10 11-10 35 0 46"/></svg><h3>Translation</h3><p>Confidence from studio monitors to earbuds and everything between.</p></article>
+          </div>
+        </section>
+
+        <section class="testimonials dark-section" aria-labelledby="testimonials-heading">
+          <div class="section-heading section-heading--center" data-reveal>
+            <p class="eyebrow">Client voices</p>
+            <h2 id="testimonials-heading">Trusted by artists worldwide.</h2>
+          </div>
+          <div class="testimonial-grid">
+            <blockquote data-reveal><p>“The depth and clarity Ocean Mastering brought to my latest LP is unparalleled. It truly feels like the final piece of the artistic puzzle was found.”</p><footer><b>Julian K.</b><span aria-label="Five stars">★★★★★</span></footer></blockquote>
+            <blockquote data-reveal><p>“Finally, someone who understands system translation. My tracks sound massive in the club and yet warm on earbuds. Essential for any serious release.”</p><footer><b>Sarat Vance</b><span aria-label="Five stars">★★★★★</span></footer></blockquote>
+            <blockquote data-reveal><p>“Precision and fidelity are secondary to the emotional impact they managed to preserve. Truly engineered with an artist’s ear.”</p><footer><b>Marcus Thorne</b><span aria-label="Five stars">★★★★★</span></footer></blockquote>
+          </div>
+          <details class="feedback-drawer" data-reveal>
+            <summary>Worked with Ocean? Share your experience <span aria-hidden="true">＋</span></summary>
+            <form class="feedback-form" data-mailto-form data-mailto-subject="Ocean Mastering client feedback">
+              <label>Name <input name="Name" autocomplete="name" required></label>
+              <label>Project / artist <input name="Project" required></label>
+              <label>Rating <select name="Rating" required><option value="">Select</option><option>★★★★★</option><option>★★★★</option><option>★★★</option></select></label>
+              <label class="span-all">Your experience <textarea name="Feedback" rows="5" required></textarea></label>
+              <button class="text-button span-all" type="submit">Prepare feedback email <span aria-hidden="true">↗</span></button>
+            </form>
+          </details>
+        </section>
+
+        <section class="services-detail" aria-labelledby="services-heading">
+          <div class="section-heading" data-reveal>
+            <p class="eyebrow">Our specialized services</p>
+            <h2 id="services-heading">One record.<br>Every listening system.</h2>
+          </div>
+          <div class="service-rows">
+            <article data-reveal><span>[01]</span><h3>Final record completion</h3><p>Precise dynamic-range control and tonal balance bring individual songs into one intentional, high-fidelity release.</p></article>
+            <article data-reveal><span>[02]</span><h3>System translation</h3><p>Your music is prepared for consistent, emotionally convincing playback across rooms, systems, platforms, and formats.</p></article>
+            <article data-reveal><span>[03]</span><h3>Technical audio engineering</h3><p>Intentional expansion works alongside world-class compression—power and movement without joining the loudness war.</p></article>
+          </div>
+        </section>
+
+        <section class="standards-section dark-section" aria-labelledby="standards-heading">
+          <div class="standards-section__copy" data-reveal>
+            <p class="eyebrow">Technical practice</p>
+            <h2 id="standards-heading">Engineered for precision.</h2>
+            <ol>
+              <li><span>[01]</span>High-resolution record completion and careful sample-rate conversion.</li>
+              <li><span>[02]</span>Translation optimization for modern playback systems and release platforms.</li>
+              <li><span>[03]</span>Critical monitoring with professional measurement and reference tools.</li>
+              <li><span>[04]</span>Dynamic control tailored to the specific emotional and sonic profile of each project.</li>
+            </ol>
+          </div>
+          <div class="standards-section__wave" data-reveal aria-hidden="true"><img src="assets/player/ocean-wave-cover.png" alt="" width="1536" height="1024" loading="lazy"></div>
+        </section>
+
+        <section class="about-section" id="about" aria-labelledby="about-heading">
+          <div class="about-section__portrait" data-reveal><img src="assets/studio/j-fi-founder.png" alt="J Fi in the mastering studio" width="1122" height="1402" loading="lazy"></div>
+          <div class="about-section__copy" data-reveal>
+            <p class="eyebrow">Founded in Austin · 2009</p>
+            <h2 id="about-heading">The philosophy<br>of precision.</h2>
+            <p>Ocean Mastering was founded by J Fi in 2009. Over the last fifteen years, we have delivered hundreds of music projects. Fulfilling your vision is our passion. We don’t just master; we help engineer each song toward its highest potential.</p>
+            <p>The work begins with the artist, then moves through the relationships already alive inside the mix.</p>
+          </div>
+        </section>
+
+        <section class="studio-section" aria-labelledby="studio-heading">
+          <div class="section-heading" data-reveal>
+            <p class="eyebrow">The studio</p>
+            <h2 id="studio-heading">A listening environment<br>built for decisions.</h2>
+            <p>Precision tools matter because they let us hear what the record is asking for.</p>
+          </div>
+          <div class="studio-grid">
+            <figure data-reveal><img src="assets/studio/01-precision-console.jpg" alt="Precision mastering console" width="1536" height="2048" loading="lazy"><figcaption><span>01</span>Precision console</figcaption></figure>
+            <figure data-reveal><img src="assets/studio/02-tube-compression.jpg" alt="Tube compression equipment" width="1536" height="2048" loading="lazy"><figcaption><span>02</span>Tube compression</figcaption></figure>
+            <figure data-reveal><img src="assets/studio/03-reference-monitors.jpg" alt="Reference monitors" width="1536" height="2048" loading="lazy"><figcaption><span>03</span>Reference monitors</figcaption></figure>
+            <figure data-reveal><img src="assets/studio/04-digital-workstations.jpg" alt="Digital mastering workstation" width="1536" height="2048" loading="lazy"><figcaption><span>04</span>Digital workstations</figcaption></figure>
+            <figure data-reveal><img src="assets/studio/05-acoustic-treatment.jpg" alt="Studio acoustic treatment" width="1536" height="2048" loading="lazy"><figcaption><span>05</span>Acoustic treatment</figcaption></figure>
+            <figure data-reveal><img src="assets/studio/06-ad-conversion.jpg" alt="Analog to digital conversion equipment" width="1536" height="2048" loading="lazy"><figcaption><span>06</span>A/D conversion</figcaption></figure>
+          </div>
+          <div class="capability-grid">
+            <article data-reveal><h3>Signal processing</h3><ul><li>Multi-band dynamic control</li><li>High-resolution spatial imaging</li><li>Advanced noise-floor management</li><li>Parametric equalization</li></ul></article>
+            <article data-reveal><h3>Translation systems</h3><ul><li>Playback-system translation</li><li>Streaming dynamic optimization</li><li>Sequence and tonal continuity</li><li>Bit-depth and sample-rate management</li></ul></article>
+            <article data-reveal><h3>Release preparation</h3><ul><li>High-resolution mastering workflow</li><li>Album and single continuity</li><li>Format-aware delivery</li><li>Critical quality control</li></ul></article>
+          </div>
+        </section>
+
+        <section class="credits-wall dark-section" id="credits" aria-labelledby="credits-heading">
+          <div class="section-heading" data-reveal>
+            <p class="eyebrow">Previous projects</p>
+            <h2 id="credits-heading">A wall of records.<br>A world of detail.</h2>
+            <p>Explore selected releases from the Ocean Mastering archive. Each cover opens into a focused project view.</p>
+          </div>
+          <div class="credit-grid">
+            <button type="button" class="credit-card" data-credit-title="Advocacy" data-credit-artist="The Path of Decoherence" data-credit-src="assets/credits/01-path-of-decoherence.webp"><img src="assets/credits/01-path-of-decoherence.webp" alt="Advocacy by The Path of Decoherence cover" loading="lazy"><span><b>Advocacy</b><small>The Path of Decoherence</small></span></button>
+            <button type="button" class="credit-card" data-credit-title="No Terror in the Bang" data-credit-artist="Heal" data-credit-src="assets/credits/02-no-terror-in-the-bang.webp"><img src="assets/credits/02-no-terror-in-the-bang.webp" alt="No Terror in the Bang by Heal cover" loading="lazy"><span><b>No Terror in the Bang</b><small>Heal</small></span></button>
+            <button type="button" class="credit-card" data-credit-title="Zon" data-credit-artist="The World Is Quiet Here" data-credit-src="assets/credits/03-the-world-is-quiet-here.webp"><img src="assets/credits/03-the-world-is-quiet-here.webp" alt="Zon by The World Is Quiet Here cover" loading="lazy"><span><b>Zon</b><small>The World Is Quiet Here</small></span></button>
+            <button type="button" class="credit-card" data-credit-title="Dancing in the Face of Danger" data-credit-artist="Exploring Birdsong" data-credit-src="assets/credits/04-exploring-birdsong.webp"><img src="assets/credits/04-exploring-birdsong.webp" alt="Dancing in the Face of Danger by Exploring Birdsong cover" loading="lazy"><span><b>Dancing in the Face of Danger</b><small>Exploring Birdsong</small></span></button>
+            <button type="button" class="credit-card" data-credit-title="Sermon of Golden Verse" data-credit-artist="Ocean Mastering archive" data-credit-src="assets/credits/05-sermon-of-golden-verse.webp"><img src="assets/credits/05-sermon-of-golden-verse.webp" alt="Sermon of Golden Verse cover" loading="lazy"><span><b>Sermon of Golden Verse</b><small>Ocean Mastering archive</small></span></button>
+            <button type="button" class="credit-card" data-credit-title="The Amensal Rise" data-credit-artist="Omnerod" data-credit-src="assets/credits/06-omnerod-amensal-rise.webp"><img src="assets/credits/06-omnerod-amensal-rise.webp" alt="The Amensal Rise by Omnerod cover" loading="lazy"><span><b>The Amensal Rise</b><small>Omnerod</small></span></button>
+            <button type="button" class="credit-card" data-credit-title="Opus" data-credit-artist="Nospun" data-credit-src="assets/credits/07-nospun-opus.webp"><img src="assets/credits/07-nospun-opus.webp" alt="Opus by Nospun cover" loading="lazy"><span><b>Opus</b><small>Nospun</small></span></button>
+            <button type="button" class="credit-card" data-credit-title="Ontological Mysterium" data-credit-artist="Horrendous" data-credit-src="assets/credits/08-horrendous-ontological-mysterium.webp"><img src="assets/credits/08-horrendous-ontological-mysterium.webp" alt="Ontological Mysterium by Horrendous cover" loading="lazy"><span><b>Ontological Mysterium</b><small>Horrendous</small></span></button>
+            <button type="button" class="credit-card" data-credit-title="Numen" data-credit-artist="Alkaloid" data-credit-src="assets/credits/09-alkaloid-numen.webp"><img src="assets/credits/09-alkaloid-numen.webp" alt="Numen by Alkaloid cover" loading="lazy"><span><b>Numen</b><small>Alkaloid</small></span></button>
+            <button type="button" class="credit-card" data-credit-title="Calibrating Friction" data-credit-artist="Haralabos Harry Stafylakis" data-credit-src="assets/credits/10-calibrating-friction.webp"><img src="assets/credits/10-calibrating-friction.webp" alt="Calibrating Friction by Haralabos Harry Stafylakis cover" loading="lazy"><span><b>Calibrating Friction</b><small>Haralabos Harry Stafylakis</small></span></button>
+            <button type="button" class="credit-card" data-credit-title="Eternal" data-credit-artist="Feather" data-credit-src="assets/credits/11-feather-eternal.webp"><img src="assets/credits/11-feather-eternal.webp" alt="Eternal by Feather cover" loading="lazy"><span><b>Eternal</b><small>Feather</small></span></button>
+            <button type="button" class="credit-card" data-credit-title="Finitude" data-credit-artist="Stortregn" data-credit-src="assets/credits/12-stortregn-finitude.webp"><img src="assets/credits/12-stortregn-finitude.webp" alt="Finitude by Stortregn cover" loading="lazy"><span><b>Finitude</b><small>Stortregn</small></span></button>
+            <button type="button" class="credit-card" data-credit-title="Counterintuitive" data-credit-artist="Ions" data-credit-src="assets/credits/13-ions-counterintuitive.webp"><img src="assets/credits/13-ions-counterintuitive.webp" alt="Counterintuitive by Ions cover" loading="lazy"><span><b>Counterintuitive</b><small>Ions</small></span></button>
+            <button type="button" class="credit-card" data-credit-title="Archive Study" data-credit-artist="Independent release" data-credit-src="assets/credits/14-project-a0753079605.jpg"><img src="assets/credits/14-project-a0753079605.jpg" alt="Purple abstract independent release cover" loading="lazy"><span><b>Archive Study</b><small>Independent release</small></span></button>
+            <button type="button" class="credit-card" data-credit-title="S.W.N.P.L." data-credit-artist="Independent release" data-credit-src="assets/credits/15-project-a1997640835.webp"><img src="assets/credits/15-project-a1997640835.webp" alt="S.W.N.P.L. independent release cover" loading="lazy"><span><b>S.W.N.P.L.</b><small>Independent release</small></span></button>
+            <button type="button" class="credit-card" data-credit-title="Old Eyes, New Heart" data-credit-artist="Madder Mortem" data-credit-src="assets/credits/16-project-a2706183814.webp"><img src="assets/credits/16-project-a2706183814.webp" alt="Old Eyes, New Heart by Madder Mortem cover" loading="lazy"><span><b>Old Eyes, New Heart</b><small>Madder Mortem</small></span></button>
+          </div>
+        </section>
 
         <section class="contact" id="contact" aria-labelledby="contact-heading">
-          <p class="eyebrow">Ready when you are</p>
-          <h2 id="contact-heading">Bring us your mix.</h2>
-          <a href="mailto:ocean.mastering@gmail.com?subject=Mastering%20project%20inquiry">ocean.mastering@gmail.com <span aria-hidden="true">↗</span></a>
-          <p>2906 E MLK Jr Blvd Ste 3311 · Austin, TX 78702 · Projects worldwide</p>
+          <div class="contact__heading" data-reveal>
+            <p class="eyebrow">Start your project</p>
+            <h2 id="contact-heading">Bring us<br>your mix.</h2>
+            <p>Tell us where the record is now, where it needs to go, and what the release means to you.</p>
+          </div>
+          <form class="project-form" data-mailto-form data-mailto-subject="Mastering project inquiry" data-reveal>
+            <label>Name <input name="Name" autocomplete="name" required></label>
+            <label>Email <input name="Email" type="email" autocomplete="email" required></label>
+            <label>Project type <select name="Project type" required><option value="">Select a project</option><option>Single</option><option>EP</option><option>Album</option><option>Other</option></select></label>
+            <label>Artist / project <input name="Artist or project" required></label>
+            <label class="span-all">Tell us about the music <textarea name="Message" rows="7" required></textarea></label>
+            <button class="text-button span-all" type="submit">Prepare project email <span aria-hidden="true">↗</span></button>
+            <p class="form-note span-all">Submitting opens your email app with the project details addressed to Ocean Mastering.</p>
+          </form>
         </section>
+
+        <dialog class="credit-dialog" data-credit-dialog aria-labelledby="credit-dialog-title">
+          <button class="credit-dialog__close" type="button" data-credit-close aria-label="Close project view">×</button>
+          <img data-credit-image src="assets/credits/01-path-of-decoherence.webp" alt="">
+          <div><p class="eyebrow">Selected work · Mastered at Ocean</p><h2 id="credit-dialog-title" data-credit-dialog-title>Advocacy</h2><p data-credit-dialog-artist>The Path of Decoherence</p></div>
+        </dialog>
       </section>
     </main>
 
     <footer>
       <p>Ocean Mastering</p>
-      <p>Precision · Fidelity · Translation</p>
-      <p>© <span data-year>2026</span></p>
+      <p><a href="mailto:ocean.mastering@gmail.com">ocean.mastering@gmail.com</a><br>2906 E MLK Jr Blvd Ste 3311 · Austin, TX 78702</p>
+      <p>Precision · Fidelity · Translation<br>© <span data-year>2026</span></p>
     </footer>
 
     <noscript>

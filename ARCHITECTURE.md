@@ -1,6 +1,6 @@
 # BELOW THE SURFACE — Technical Architecture
 
-Last updated: 2026-08-18 after depth-palette and inertial-motion validation
+Last updated: 2026-08-18 after extended-finale and full-content integration validation
 
 ## Purpose
 
@@ -11,12 +11,16 @@ This architecture exists to make scroll position the deterministic playhead for 
 ```text
 index.html
 ├── semantic persistent navigation
-├── one 700vh cinematic scroll region
+├── one 1050svh cinematic scroll region
 │   ├── sticky 100svh visual stage
 │   ├── one WebGL canvas
 │   ├── sparse semantic copy layer
 │   └── progress/depth orientation affordance
-├── concise post-cinematic business content
+├── guarded handoff that keeps post-story content hidden until eased story completion
+├── first-party listening room with ten locally hosted masters
+├── process, services, testimonials, standards, about, and studio sections
+├── interactive sixteen-project credits wall
+├── static-site-safe project and feedback forms
 └── semantic contact/footer
 
 scripts/
@@ -32,7 +36,8 @@ scripts/
 │   ├── pressure.js            slow deep-water displacement field
 │   ├── light-field.js         sun, caustics, beams, attenuation
 │   └── cloud-field.js         transparent raster cloud crossing at altitude
-└── copy-layer.js              one thought at a time from storyboard state
+├── copy-layer.js              one thought at a time from storyboard state
+└── site-interactions.js       audio player, forms, reveals, and credit dialog
 ```
 
 The exact split may evolve, but state, rendering systems, and DOM must remain separate.
@@ -105,7 +110,11 @@ Target and pitch change sparingly. Surface distance remains readable in every un
 
 ### Aerial cloud crossing
 
-Three horizontal raster cloud layers sit along the final camera trajectory at different elevations. They are front-facing from above, alpha rapidly near `0.978`, and become visible as the camera physically rises through them. The primary cirrus texture is a purpose-built transparent PNG; two lighter supporting textures are CC0 assets. No cloud SVGs, CSS cloud shapes, or sky-backed rectangles are used.
+Five horizontal raster cloud layers sit along the final camera trajectory at different elevations. They are front-facing from above, begin staging near `0.925`, and become visible as the camera physically rises through them. The purpose-built transparent cirrus texture and two CC0 alpha textures are reused at distinct scale, rotation, altitude, and opacity so the camera passes through successive wispy fields without repeating an obvious tile. No cloud SVGs, CSS cloud shapes, or sky-backed rectangles are used.
+
+### Handoff guard
+
+The authored story reaches its final state at 86% of the cinematic region, leaving approximately 140svh of native-scroll runway for the damped playhead and aerial hold. Until authored progress reaches `0.9992`, the post-story region remains invisible and attempts to scroll beyond the sticky boundary are returned to that boundary. Anchor navigation and the skip link deliberately bypass the guard and finish the playhead immediately.
 
 ### Waterline treatment
 
