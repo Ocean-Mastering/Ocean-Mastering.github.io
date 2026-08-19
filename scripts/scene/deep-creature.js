@@ -3,8 +3,8 @@ import { smooth } from "../storyboard.js";
 
 const CREATURE_ENTER = 0.58;
 const CREATURE_FULL = 0.65;
-const CREATURE_LEAVE = 0.79;
-const CREATURE_GONE = 0.845;
+const CREATURE_LEAVE = 0.81;
+const CREATURE_GONE = 0.86;
 
 export function createDeepCreature() {
   const group = new THREE.Group();
@@ -15,7 +15,7 @@ export function createDeepCreature() {
 
   const material = new THREE.SpriteMaterial({
     map: texture,
-    color: 0xa8d4fb,
+    color: 0xc0e3ff,
     transparent: true,
     opacity: 0,
     depthWrite: false,
@@ -25,7 +25,7 @@ export function createDeepCreature() {
   });
   const jellyfish = new THREE.Sprite(material);
   jellyfish.position.set(-14, -42, -38);
-  jellyfish.scale.set(6, 9, 1);
+  jellyfish.scale.set(6.4, 9.6, 1);
   group.add(jellyfish);
   group.visible = false;
 
@@ -38,12 +38,13 @@ export function createDeepCreature() {
 
     const driftTime = state.storyTime * 0.018 + ambientTime * 0.19;
     const pulse = Math.sin(driftTime * 0.72) * 0.5 + 0.5;
-    material.opacity = presence * (0.4 + pulse * 0.045);
+    const deepFollow = smooth((state.progress - 0.65) / 0.11);
+    material.opacity = presence * (0.56 + pulse * 0.06);
     material.rotation = -0.075 + Math.sin(driftTime * 0.41) * 0.018;
     jellyfish.position.x = -14 + Math.sin(driftTime * 0.31) * 0.55;
-    jellyfish.position.y = -42 + Math.sin(driftTime * 0.47) * 0.38;
+    jellyfish.position.y = -42 - deepFollow * 6.5 + Math.sin(driftTime * 0.47) * 0.38;
     jellyfish.position.z = -38 + Math.cos(driftTime * 0.27) * 0.32;
-    jellyfish.scale.set(6 * (0.985 + pulse * 0.015), 9 * (1.012 - pulse * 0.012), 1);
+    jellyfish.scale.set(6.4 * (0.985 + pulse * 0.015), 9.6 * (1.012 - pulse * 0.012), 1);
   }
 
   function dispose() {
