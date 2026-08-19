@@ -348,10 +348,13 @@ If instead the recording reads as headline, fade, paragraph, ocean image, headli
 - **2026-08-18:** Build the new scene from a true above/below ocean camera model with one persistent double-sided water surface, procedural depth layers, and scroll-derived particle/current fields.
 - **2026-08-18:** Major physical phase uses scroll progress rather than autonomous elapsed time. Only negligible completed-finale breathing may remain time-based.
 - **2026-08-18:** Do not migrate legacy visual assets or the inaccurate standards claim.
+- **2026-08-18:** Three.js `0.185.1` is vendored locally with its license; there is no runtime CDN or package build step.
+- **2026-08-18:** The replacement uses one displaced double-sided water plane, deterministic depth particles, soft particulate current volumes, deep pressure shells, procedural light fields, and a vertically dominant camera path.
+- **2026-08-18:** The visual QA query `?visual-only=1` hides all interface and marketing copy for the silent-story test. `?reduced-motion=1` exposes the stable-state accessibility mode for deterministic testing.
 
 ## Current implementation state
 
-Last updated: **2026-08-18**
+Last updated: **2026-08-18, after replacement prototype validation**
 
 ### Complete and still valid
 
@@ -364,6 +367,15 @@ Last updated: **2026-08-18**
 - This contract now records **BELOW THE SURFACE** as authoritative.
 - The superseded homepage implementation and its media/dependency assets have been removed from the working tree.
 - `ARCHITECTURE.md` now defines the replacement continuous above/below-water scene.
+- The replacement homepage is implemented from scratch as one `760svh` cinematic region with one sticky WebGL scene.
+- All eleven normalized story shots are centralized in `scripts/storyboard.js`.
+- The camera physically crosses the same displaced water surface during descent and emergence.
+- Near-surface shimmer, volumetric particulate currents, deep pressure, coherence, physical turn, ascent, and final reveal are implemented as one connected space.
+- Sparse copy, restrained navigation, semantic transcript, non-WebGL inline-SVG fallback, skip link, services/about/contact handoff, and light-background header mode are implemented.
+- Adaptive high, balanced, and mobile GPU quality tiers are implemented.
+- Reduced motion selects stable authored depth states rather than continuously moving the camera.
+- Desktop `1280×720` and responsive mobile `390×844` browser passes retained the full story and rendered WebGL successfully.
+- The text-hidden sequence was inspected across the full storyboard. Reverse scrubbing reconstructed the exact prior captured frame, and stopped reduced-motion states remained pixel-stable within their shot.
 
 ### Superseded
 
@@ -371,12 +383,10 @@ Last updated: **2026-08-18**
 
 ### Remaining
 
-1. Build and validate the new physical waterline prototype.
-2. Implement centralized eleven-shot choreography.
-3. Validate text-hidden legibility and reverse scrubbing.
-4. Author mobile and reduced-motion modes.
-5. Add restrained navigation and supporting business content after the cinematic sequence succeeds.
-6. Optimize, test, create the GitHub repository, deploy, and verify Pages.
+1. Validate performance and touch behavior on at least one physical iPhone and one physical Android device.
+2. Replace the temporary Work / Credits note with verified real credits and optional listening examples after user review.
+3. Create `Ocean-Mastering/Ocean-Mastering.github.io`, push `main`, enable/verify organization Pages, and only then configure any custom domain.
+4. Perform final public-URL smoke tests, metadata/share-card work, and launch QA.
 
 ## Final instruction
 

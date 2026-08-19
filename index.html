@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#02080d">
+    <meta name="description" content="Ocean Mastering listens beneath the surface—revealing the depth, relationship, and movement already inside your music.">
+    <title>Ocean Mastering — Below the Surface</title>
+    <link rel="stylesheet" href="styles/site.css">
+    <script>document.documentElement.classList.add("has-js")</script>
+    <script type="module" src="scripts/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#after-story">Skip the cinematic story</a>
+
+    <header class="site-header" data-site-header>
+      <a class="brand" href="#top" aria-label="Ocean Mastering, home">
+        <svg viewBox="0 0 82 28" aria-hidden="true">
+          <path d="M1 15c8 0 8-3 16-3s8 5 16 5 8-11 16-11 8 14 16 14 8-5 16-5"/>
+        </svg>
+        <span><b>OCEAN</b><small>MASTERING</small></span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#services">Services</a>
+        <a href="#work">Work / Credits</a>
+        <a href="#about">About</a>
+        <a class="nav-cta" href="#contact">Start a master</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="cinematic" data-cinematic aria-labelledby="story-heading">
+        <div class="cinematic-stage" data-stage>
+          <canvas data-ocean-canvas aria-hidden="true"></canvas>
+
+          <svg class="fallback-depth" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" role="img" aria-labelledby="fallback-title fallback-description">
+            <title id="fallback-title">Below the surface</title>
+            <desc id="fallback-description">A calm ocean surface above connected layers of shimmer, currents, and deep pressure.</desc>
+            <defs>
+              <linearGradient id="depthGradient" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#08141a"/><stop offset=".28" stop-color="#07323c"/><stop offset="1" stop-color="#02070c"/></linearGradient>
+              <radialGradient id="depthGlow"><stop stop-color="#7bdcd4" stop-opacity=".36"/><stop offset="1" stop-color="#7bdcd4" stop-opacity="0"/></radialGradient>
+            </defs>
+            <rect width="1600" height="1000" fill="url(#depthGradient)"/>
+            <path d="M0 255c170 0 170-13 340-13s170 28 340 28 170-48 340-48 170 34 340 34 170-12 340-12" fill="none" stroke="#b6f4ed" stroke-width="3"/>
+            <path d="M0 260c170 0 170-13 340-13s170 28 340 28 170-48 340-48 170 34 340 34 170-12 340-12V0H0z" fill="#02070c" fill-opacity=".76"/>
+            <ellipse cx="800" cy="260" rx="620" ry="230" fill="url(#depthGlow)"/>
+            <g fill="none" stroke="#59aaa8" stroke-opacity=".25">
+              <path d="M-100 510c230-150 380 120 620 0s390-100 630 12 390 80 620-40"/>
+              <path d="M-100 620c280-180 420 140 690-10s390-20 610 45 360 35 560-90"/>
+              <ellipse cx="800" cy="1050" rx="610" ry="300"/>
+              <ellipse cx="800" cy="1050" rx="430" ry="210"/>
+            </g>
+          </svg>
+
+          <div class="atmosphere" aria-hidden="true"></div>
+
+          <div class="story-copy-layer">
+            <section class="story-copy story-copy--opening" data-copy="opening">
+              <p class="eyebrow">Ocean Mastering · Austin, Texas</p>
+              <h1 id="story-heading">There is more in your mix than you can hear.</h1>
+              <p class="scroll-cue"><i></i> Scroll to descend</p>
+            </section>
+
+            <section class="story-copy story-copy--submerge" data-copy="submerge">
+              <p class="eyebrow">Below the surface</p>
+              <h2>Listen beneath<br>the surface.</h2>
+            </section>
+
+            <section class="story-copy story-copy--currents" data-copy="currents">
+              <p class="eyebrow">Current</p>
+              <h2>Every element changes everything around it.</h2>
+            </section>
+
+            <section class="story-copy story-copy--relationship" data-copy="relationship">
+              <p class="eyebrow">Relationship</p>
+              <h2>Nothing<br>is isolated.</h2>
+            </section>
+
+            <section class="story-copy story-copy--ascent" data-copy="ascent">
+              <p class="eyebrow">Revelation</p>
+              <h2>Same music.<br>Greater revelation.</h2>
+            </section>
+
+            <section class="story-copy story-copy--finale" data-copy="finale">
+              <p class="eyebrow">Ocean Mastering</p>
+              <h2>Mastering doesn’t add the ocean.</h2>
+              <p>It reveals the depth that was already there.</p>
+              <a class="primary-button" href="#contact">Start a master <span aria-hidden="true">↗</span></a>
+            </section>
+          </div>
+
+          <div class="orientation" aria-hidden="true">
+            <span data-shot-index>01</span>
+            <i><b data-progress-line></b></i>
+            <span data-shot-label>Above the water</span>
+          </div>
+
+          <div class="depth-meter" aria-hidden="true">
+            <span>Surface</span>
+            <i><b data-depth-line></b></i>
+            <span data-depth-value>+03.8m</span>
+          </div>
+        </div>
+
+        <div class="story-transcript visually-hidden">
+          <p>A calm ocean becomes a signal as the camera descends.</p>
+          <p>The camera passes physically below the surface into shimmer, flowing currents, and enormous pressure.</p>
+          <p>The currents remain complex while becoming more supportive and coherent.</p>
+          <p>The camera turns, ascends through the same layers, and emerges to see the same ocean with greater depth and clarity.</p>
+        </div>
+      </section>
+
+      <section class="after-story" id="after-story">
+        <div class="after-story__intro" id="services">
+          <p class="eyebrow">The final step in record completion</p>
+          <h2>Your music.<br><em>Fully revealed.</em></h2>
+          <p>Ocean Mastering brings clarity, depth, and reliable translation to finished mixes without erasing their movement or identity.</p>
+        </div>
+
+        <div class="service-line" aria-label="Core services">
+          <article><span>01</span><h3>Deep listening</h3><p>Every project begins with the relationships already inside the mix.</p></article>
+          <article><span>02</span><h3>Coherent depth</h3><p>Dynamics, tone, width, and sequence move as one without becoming uniform.</p></article>
+          <article><span>03</span><h3>Trusted translation</h3><p>The record remains itself across rooms, systems, and release formats.</p></article>
+        </div>
+
+        <div class="utility-row" id="work">
+          <p class="eyebrow">Work / Credits</p>
+          <p>Selected listening examples and verified credits are being curated for the launch version.</p>
+        </div>
+
+        <div class="utility-row" id="about">
+          <p class="eyebrow">Founded in Austin · 2009</p>
+          <p>J Fi founded Ocean Mastering to help records become more fully themselves. Hundreds of projects later, the work still begins with listening.</p>
+        </div>
+
+        <section class="contact" id="contact" aria-labelledby="contact-heading">
+          <p class="eyebrow">Ready when you are</p>
+          <h2 id="contact-heading">Bring us your mix.</h2>
+          <a href="mailto:ocean.mastering@gmail.com?subject=Mastering%20project%20inquiry">ocean.mastering@gmail.com <span aria-hidden="true">↗</span></a>
+          <p>2906 E MLK Jr Blvd Ste 3311 · Austin, TX 78702 · Projects worldwide</p>
+        </section>
+      </section>
+    </main>
+
+    <footer>
+      <p>Ocean Mastering</p>
+      <p>Precision · Fidelity · Translation</p>
+      <p>© <span data-year>2026</span></p>
+    </footer>
+
+    <noscript>
+      <style>
+        .cinematic { height: auto !important; }
+        .cinematic-stage { position: relative !important; min-height: 100svh; }
+        .story-copy { position: relative !important; inset: auto !important; opacity: 1 !important; transform: none !important; padding: 3rem var(--page-pad); }
+      </style>
+    </noscript>
+  </body>
+</html>

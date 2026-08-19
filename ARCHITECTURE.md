@@ -1,6 +1,6 @@
 # BELOW THE SURFACE — Technical Architecture
 
-Last updated: 2026-08-18
+Last updated: 2026-08-18 after prototype validation
 
 ## Purpose
 
@@ -43,15 +43,15 @@ The renderer receives one immutable state object derived from progress:
 {
   progress,
   shot,
-  camera: { position, target, fov, submersion },
-  surface: { distance, amplitude, detail, signalRead, reveal },
-  atmosphere: { fogDensity, fogColor, exposure, causticStrength },
-  particles: { density, speed, shimmer, coherence, depthBias },
-  currents: { visibility, scale, turbulence, separation, coherence },
-  pressure: { amplitude, phase, scale },
-  light: { surface, beam, ambient, color },
-  copy: { id, visibility, position },
-  quality
+  storyTime,
+  shot,
+  shotIndex,
+  camera: { x, y, z, targetX, targetY, targetZ, fov, submersion },
+  surface: { amplitude, detail, reveal },
+  particles: { density, speed, shimmer },
+  currents: { visibility, turbulence, coherence },
+  pressure,
+  atmosphere: { caustic, beam, fogDensity, exposure, clarity }
 }
 ```
 
@@ -119,7 +119,7 @@ Currents are volumetric density regions expressed by particle flow, faint transl
 
 ### Pressure
 
-Deep pressure is a very low-frequency world-space displacement applied across particles, current volumes, fog density, and tiny camera offsets. It changes scale, not loudness.
+Deep pressure is a very low-frequency world-space displacement applied across particles, current volumes, soft Fresnel pressure shells, and tiny camera offsets. It changes scale, not loudness.
 
 ## Progressive enhancement
 
@@ -173,9 +173,9 @@ Every tier retains the full story.
 - Runtime assets use relative URLs.
 - Custom domain is configured only after organization Pages works at its default URL.
 
-## Prototype gate
+## Prototype gate — passed locally
 
-Do not rebuild portfolio polish or secondary visual systems until a text-hidden screen recording clearly shows:
+The text-hidden desktop and responsive-mobile review now shows:
 
 1. calm ocean and downward surface approach;
 2. water/profile ambiguity;
@@ -187,3 +187,5 @@ Do not rebuild portfolio polish or secondary visual systems until a text-hidden 
 8. ascent through the same layers;
 9. physical emergence;
 10. the same ocean revealed with richer dimension.
+
+The current visual test path is `/?visual-only=1`. Reverse-scrub capture returned the exact prior frame. Physical-device performance validation remains outstanding before deployment.
