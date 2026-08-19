@@ -2,552 +2,382 @@
 
 ## Mandatory instruction for every future Codex instance
 
-**READ `PROJECT_CONTRACT.md` IN FULL BEFORE MAKING CHANGES.**
+**READ THIS FILE IN FULL BEFORE DESIGNING, CODING, REFACTORING, INSTALLING DEPENDENCIES, EDITING ASSETS, OR DEPLOYING.**
 
-This file is the authoritative creative and technical work order for the Ocean Mastering website. It exists to survive context compression, new sessions, implementation handoffs, and loss of conversation history.
+This is the authoritative creative and technical work order for the Ocean Mastering website. It must survive context compression, new sessions, and implementation handoffs.
 
 Future Codex instances must:
 
-- Read this contract before designing, coding, refactoring, installing dependencies, changing architecture, editing assets, or deploying.
-- Preserve the approved core narrative and brand philosophy unless the user explicitly changes them.
-- Never silently abandon, flatten, or reinterpret the narrative into a conventional landing page.
-- Distinguish the **Non-negotiable requirements** below from **Implementation decisions**, which may evolve when evidence justifies a change.
-- Update this contract whenever a major creative, architectural, deployment, asset, or completion decision is made.
-- Keep the **Current implementation state** accurate enough for another instance to resume without guessing.
-- Never delete this contract after the site is built.
+- preserve the current approved narrative unless the user explicitly replaces it;
+- never flatten the homepage into a conventional landing page with incidental entrance effects;
+- keep all meaningful cinematic state continuously controlled by normalized scroll progress;
+- update this file after major creative, architecture, deployment, asset, or completion decisions;
+- keep **Current implementation state** accurate;
+- never delete this contract.
+
+## Supersession record
+
+On **2026-08-18**, the user explicitly rejected and superseded the first Ocean Mastering homepage execution.
+
+That version failed the intended experience because it behaved too much like authored website sections arranged around a visual effect. Although it contained a scroll-linked mesh, the camera did not physically carry the visitor through one continuous environment with a convincing waterline crossing, persistent surface anchor, full descent, turn, ascent, and return.
+
+The former narrative, **“FROM SIGNAL TO SEA — THE WAVE BECOMES WHOLE,”** is no longer the authoritative homepage narrative. It remains recoverable in Git history only.
+
+The current authoritative homepage narrative is:
+
+# BELOW THE SURFACE
 
 ## Project identity
 
-- Project: **Ocean Mastering**
-- Business: Boutique audio mastering house
-- Current website to audit: `https://www.ocean-mastering.com/`
-- Conceptual scroll-narrative reference: `https://unitedcarriers.com/`
-- GitHub organization: **Ocean Mastering**
-- Organization URL: `https://github.com/Ocean-Mastering`
-- Deployment target: GitHub Pages
-- Required local repository root: `/Users/JDub/Desktop/OceanMastering_website`
-- Experience title: **FROM SIGNAL TO SEA — THE WAVE BECOMES WHOLE**
+- Business: **Ocean Mastering**, boutique audio mastering house
+- Location: Austin, Texas; projects worldwide
+- Current public site used only as a factual/audio-content audit source: `https://www.ocean-mastering.com/`
+- GitHub organization: `https://github.com/Ocean-Mastering`
+- Deployment target: static GitHub Pages
+- Local Git root: `/Users/JDub/Desktop/OceanMastering_website`
+- Likely organization Pages repository: `Ocean-Mastering/Ocean-Mastering.github.io`
+- Primary CTA: **START A MASTER**
+- Contact baseline: `ocean.mastering@gmail.com`
+
+## One-sentence north star
+
+The visitor begins floating above a deceptively simple wave, scrolls physically beneath its surface into an enormous hidden architecture of shimmer, currents, pressure, and musical relationships, watches those relationships become naturally more coherent and supportive, and then rises back through the same water to discover that nothing new was added—the depth was inside the music all along.
+
+## Central idea
+
+There is far more inside a musical mix than what initially appears on the surface.
+
+Mastering does not manufacture that depth. It listens into the music, reveals the relationships already present, supports them, and allows the music to inhabit its own depth.
+
+Emotional character:
+
+- luxurious
+- mysterious
+- restrained
+- contemplative
+- boutique
+- cinematic
+- organic
+- tactile
+- emotional
+
+The experience is oceanic and less overtly technological than the superseded version. Audio concepts are felt through water behavior rather than explained with interface graphics.
+
+## Absolute non-negotiables
+
+1. The homepage is one continuous cinematic scene. It is not a normal stack of sections, a static ocean background under text, or an animated hero followed immediately by conventional content.
+2. **The user’s scroll position is the playhead.** Camera, water, particles, light, current behavior, atmosphere, and transformations are derived continuously from normalized progress `0 → 1`.
+3. The primary cinematic sequence occupies substantial physical scroll distance, initially targeted at approximately **700vh** and adjustable only after pacing tests.
+4. Scrolling backward reconstructs and reverses the same journey naturally. Narrative state is deterministic and scrub-able.
+5. The camera is the main storytelling device. It approaches the water, crosses the actual surface, descends, slows, turns, ascends through the same layers, crosses the surface again, and reveals the same ocean from above.
+6. The entire story occurs in **one physical place**. Frequency regions are depth bands inside the same ocean, never separate section backgrounds.
+7. The surface is the persistent spatial anchor. Once underwater, it remains visible overhead, receding during descent and approaching during ascent.
+8. The water becomes waveform-like because of camera proximity and silhouette. It never crossfades into an unrelated SVG, graph, or “audio mode.”
+9. Waterline crossings are spatial transitions, not blue overlays, cuts, fades to black, or new-section reveals.
+10. Visible scene change occurs during virtually every meaningful scroll interval. There are no dead bands where only text moves.
+11. Mastering changes relationships between existing currents. It never replaces them, erases complexity, or forces them into mechanical uniformity.
+12. The mastered result remains complex, dynamic, dimensional, naturally varied, and alive. It is not merely larger or louder.
+13. The visual story must remain legible with all marketing copy hidden.
+14. All graphics are newly authored procedural WebGL, inline SVG, or CSS. Never reuse the legacy Ocean Mastering logo, cover art, Wix graphics, or studio photography.
+15. The silent visual narrative is complete on its own. Audio never autoplays and is not required for the cinematic sequence.
+16. Mobile retains the same descent, depth, currents, pressure, relationship, ascent, and reveal.
+17. Reduced-motion, keyboard access, semantic content, fallback visuals, and performance are first-class requirements.
+18. The result remains a reproducible static GitHub Pages site.
+
+## Things this must never resemble
+
+- an equalizer or frequency graph
+- a giant plugin interface
+- a neon DAW or cyberpunk audio tool
+- glowing circuit boards
+- literal EQ curves or Hertz labels
+- floating music notes
+- a stock-photo studio site
+- a generic blue-gradient SaaS page
+- headlines fading over an unrelated ocean image
+- eleven separate “frequency sections”
+- a theme-park camera ride or constant orbit
+- decorative particle snow
+
+## Authoritative normalized storyboard
+
+All ranges below describe one pinned scene. Exact curve values may be tuned; range order and physical meaning may not be changed without user approval.
+
+### 0.00–0.08 — Shot 1: Above the water / Almost nothing
+
+- Camera begins slightly above an almost perfectly calm midnight ocean.
+- Distant horizon, near-black sky, subtle reflection, one restrained swell.
+- Scroll moves the camera primarily **downward**, not toward the horizon.
+- Horizon rises in frame; water detail increases; camera ends inches above the surface.
+- Water phase and the passing swell are scrubbed by progress.
+- Copy: “There is more in your mix than you can hear.”
+
+### 0.08–0.16 — Shot 2: The surface becomes a signal
+
+- Camera lowers until the surface profile occupies the horizontal composition.
+- The same water geometry begins to read as both ocean and audio waveform.
+- Horizon disappears; reflections stretch; crest highlights articulate the profile.
+- Near `0.13–0.14`, camera reaches the waterline and the frame becomes roughly half air / half depth.
+- No graphic substitution or crossfade.
+
+### 0.16–0.25 — Shot 3: Crossing the waterline
+
+- Camera physically passes through the surface.
+- Waterline moves upward through the viewport: approximately 20%, 50%, 80%, then 100% underwater.
+- Underwater fog, refraction, particle visibility, surface underside, caustics, and light attenuation change continuously with camera depth.
+- The surface wave remains visible overhead after submersion.
+- Copy: “Listen beneath the surface.”
+
+### 0.25–0.38 — Shot 4: Near-surface detail / Light
+
+- Camera continues descending but remains relatively near the surface.
+- Small luminous particles shimmer quickly and reveal fine flow.
+- Caustics and small surface disturbances produce rapid, delicate movement.
+- High-frequency character is communicated by scale, speed, and light—not labels.
+- The bright surface slowly retreats upward; larger, slower structures emerge below.
 
-United Carriers is a conceptual reference for using scroll itself to tell a continuous physical story. Do not copy its identity, assets, layout, branding, copy, or implementation literally.
+### 0.38–0.52 — Shot 5: Mid-water / Current
 
-## Non-negotiable requirements
+- Broad, transparent, river-like currents emerge as refractive density and particle flow—not neon ribbons.
+- Several currents remain distinct, cross, bend, accelerate, and create pockets of pressure.
+- Camera moves down and subtly between them.
+- Scroll controls current reveal, spacing, redirection, velocity, camera drift, and light.
+- Copy: “Every element changes everything around it.”
 
-These requirements must survive all implementation changes:
+### 0.52–0.65 — Shot 6: Deep water / Pressure
 
-1. The website tells **one continuous scroll-driven story**. It is not a conventional stack of sections with incidental scroll effects.
-2. The approved narrative is **FROM SIGNAL TO SEA — THE WAVE BECOMES WHOLE**.
-3. The central recurring visual metaphor is **WATER WAVE ⇄ AUDIO WAVEFORM**: two perspectives on the same energy, not unrelated graphics.
-4. The incoming mix is never portrayed as bad, broken, or in need of magical repair. The music is already there.
-5. Mastering is portrayed as listening, revealing, strengthening, interweaving, supporting, deepening, translating, and preparing music for the world.
-6. Interwoven currents and signals embody harmony, cohesion, balance, support, community, and interdependence without erasing individuality.
-7. The mastered result remains dynamic, dimensional, complex, and alive. Never visually endorse brickwall loudness or homogenization.
-8. The visitor follows the same mastered wave through changing playback environments while its identity remains recognizable.
-9. The final emotional destination is **OPEN WATER / RELEASE / THE WORLD**.
-10. The primary CTA emerges naturally from the story: **START A MASTER** / **SEND IT OUT INTO THE WORLD**.
-11. The finished implementation works as a reproducible static GitHub Pages site under the Ocean Mastering organization.
-12. Mobile authorship, accessibility, reduced motion, and performance are first-class requirements.
-13. `PROJECT_CONTRACT.md` remains the persistent authoritative project record.
+- Environment darkens; surface remains faintly visible far overhead.
+- Particle movement becomes slower and more widely spaced.
+- Enormous low-frequency pressure waves displace particles, bend distant currents, alter light density, and subtly move the camera.
+- One pulse may occupy most of the viewport.
+- Bass is the ocean breathing, never a waveform graphic.
+
+### 0.65–0.76 — Shot 7: Mastering intervention / Relationship
 
-## Central creative idea
+- No engineer avatar, equipment, virtual hands, plugins, or controls appear.
+- Existing currents redirect, gain room, support one another, and reinforce instead of fight.
+- Turbulence becomes increasingly coherent while complexity and individuality remain.
+- Particle paths become elegant and coordinated, never mechanically uniform.
+- Transformation is from **complexity to coherence**, not complexity to simplicity.
+- Copy: “Nothing is isolated.” or “Support changes everything.”
 
-The scroll itself is the story. The visitor follows one wave from its earliest delicate state through discovery, depth, interconnection, strength, translation, and release into the world.
+### 0.76–0.84 — Shot 8: The turn
+
+- Descent visibly slows and nearly stops at the deepest conceptual point.
+- Pressure, currents, particles, distant surface, and depth coexist in one held composition.
+- A brief suspended moment gives way to upward camera movement while scroll continues downward.
+- The reversal is physical and perceptible.
 
-Core visual transformation:
+### 0.84–0.91 — Shot 9: Ascent / Seeing the whole
 
-**WATER WAVE → SOUND WAVE → INTERWOVEN SIGNAL → DEEP, COHERENT OCEAN WAVE**
+- Downward page scroll now moves the camera upward through the same currents.
+- Bass pressure remains beneath; broad currents stack through the middle; shimmer approaches above.
+- The same layers feel more coordinated and intelligible.
+- Lighting brightens, color richness increases, water clears, and ascent has elegant momentum.
+- Copy: “Same music. Greater revelation.”
 
-Core emotional transformation:
+### 0.91–0.96 — Shot 10: Breaking the surface
 
-**fragility → understanding → support → harmony → depth → resilience → release**
+- Camera approaches the luminous underside of the waveform-like surface.
+- Refraction intensifies and the actual waterline moves down through the viewport.
+- The frame passes from mostly underwater to half-submerged to fully above water.
+- This mirrors the first crossing but carries greater clarity and emotional weight.
 
-The visitor should feel mastering before the site fully explains mastering.
+### 0.96–1.00 — Shot 11: Revelation / The same wave fully seen
 
-## Brand philosophy
+- Camera rises and eases slightly backward to reveal more of the same ocean.
+- The opening swell now has beautifully defined shape, body, internal movement, highlights, and preserved natural variation.
+- It does not become a storm, an absurd wall, or a “louder” cartoon.
+- The lone wave is understood as part of a vast coherent body of water.
+- Final copy: “Mastering doesn’t add the ocean. It reveals the depth that was already there.”
+- Supporting thought: “Your music. Fully revealed.”
+- CTA: **START A MASTER**
+- Only at this completed state may an extremely gentle ambient ocean drift continue without new scroll input.
 
-Ocean Mastering does not exist to crush music into loudness. The music is already present in the incoming mix. Mastering listens deeply to what exists and helps it become:
+## Centralized choreography model
 
-- more coherent
-- more dimensional
-- more supported
-- more resilient
-- more revealing
-- more translatable across playback systems
-- ready to leave the studio and enter the world
+Narrative state must live in one explicit configuration module. Every shot defines:
 
-The finished master should feel bigger without feeling flattened, more powerful without feeling less alive, and more cohesive without making complex elements conform.
+1. normalized start/end progress;
+2. camera position;
+3. camera target/orientation;
+4. surface distance and waterline state;
+5. particle density, size, speed, and flow mode;
+6. current visibility, spacing, turbulence, and coherence;
+7. pressure-wave amplitude and phase;
+8. lighting, caustics, fog, and atmosphere;
+9. copy visibility and spatial position;
+10. quality-dependent overrides.
 
-The visual philosophy must favor:
+Avoid unexplained magic numbers scattered across render modules. A pure function should be able to derive the complete scene state from `progress`, viewport, quality tier, and reduced-motion preference.
 
-- **COHESION WITHOUT CONFORMITY**
-- **POWER WITHOUT CRUSHING**
-- **DEPTH WITHOUT MUD**
-- **CLARITY WITHOUT STERILITY**
-- **UNITY WITHOUT ERASING INDIVIDUALITY**
+Major animation phase must use a scrubbed narrative clock such as `storyTime = progress × duration`, so stopping or reversing scroll stops or reverses the physical story. Autonomous time may be used only for negligible final-state breathing and non-narrative focus affordances.
 
-## Approved continuous narrative
+## Camera principles
 
-The chapters below are named narrative states in one physical transformation, not isolated website sections.
+- Primary motion is calm vertical descent followed by ascent.
+- Secondary pitch, drift, and lateral travel are subtle and purposeful.
+- No constant orbiting or aggressive roll.
+- Avoid motion-sickness-inducing acceleration.
+- Camera depth must be visually measurable through surface distance, parallax, particle scale, fog, and light.
+- Pacing: slow opening, anticipatory crossing, steady descent, exploratory currents, heavy spacious depth, gradual coherence, suspended turn, quicker elegant ascent, dramatic-but-controlled breakthrough, slow reveal.
 
-### Chapter 0 — Arrival / The first line
+## Water surface and waterline
 
-Begin with near-total restraint: darkness, deep black or blue-black space, and one extremely thin moving horizontal line.
+- Use one double-sided displaced surface visible from above and below.
+- Above-water, half-submerged, and underwater states must be convincingly distinct.
+- Prefer true geometry, double-sided materials, depth/fog changes, clipping where useful, and shader-based refraction over a full-screen color wipe.
+- The underside must catch refracted highlights and remain recognizable as the same surface.
+- Water silhouette becomes waveform-like through viewpoint, lighting, and geometry.
 
-The visitor should initially be unsure whether the line is:
+## Particles and currents
 
-- a distant ocean horizon
-- a ripple of water
-- an oscilloscope trace
-- an audio waveform
+Particles are flow tracers, not decoration.
 
-That ambiguity is intentional. The line is delicate, exposed, brittle, minimal, and barely alive. Establish anticipation instead of showing everything immediately.
+- Near surface: small, quick, shimmering, high-detail paths.
+- Mid-water: particles visibly follow multiple current fields.
+- Deep: slower motion, greater spacing, larger-scale displacement.
+- Mastering: paths become mutually coherent without converging into identical motion.
+- Ascent: the same particles reveal how depth layers connect.
 
-Possible sparse opening: **“Your music is already there.”**
+Currents should be perceived through density, refraction, particles, and light bending. Hard lines and neon ribbons are prohibited.
 
-As scrolling begins, the camera moves closer. The line gains subtle dimensionality. A ripple appears, then another. Water and audio become increasingly indistinguishable.
+## Light
 
-### Chapter 1 — The mix / Signal
+- Opening: minimal surface reflection.
+- Just underwater: clear but restrained caustics.
+- Mid-depth: long beams and softer illumination.
+- Deep: blue-black gradients with scarce, enormous light structure.
+- Coherence: light travels more intelligibly; do not simply add more lights.
+- Ascent: clarity and richness return.
+- Finale: natural illumination reveals form. The emotional mode is **revelation**, not special effect.
 
-The line increasingly resembles a water surface while behaving like an audio waveform. It represents the unmastered mix entering Ocean Mastering.
+## Copy sequence
 
-The mix is beautiful and musically informative, never defective. It may feel thin, exposed, less supported, less dimensional, or less interconnected, but it does not need replacement. It needs deep listening.
+No more than one primary thought is visible at a time. Text supplements the visual story and never substitutes for it.
 
-### Chapter 2 — Below the surface / Listen
+- Opening: “There is more in your mix than you can hear.”
+- Submergence: “Listen beneath the surface.”
+- Currents: “Every element changes everything around it.”
+- Mastering: “Nothing is isolated.”
+- Ascent: “Same music. Greater revelation.”
+- Finale: “Mastering doesn’t add the ocean. It reveals the depth that was already there.”
 
-The visitor approaches and moves beneath the surface. This is the first major spatial reveal and should communicate that more exists inside a mix than can be seen from the surface.
+Typography is editorial, restrained, and physically integrated into the composition.
 
-Under the signal is a rich cinematic world of current, pressure, motion, filaments, particles, oscillation, and light. Avoid a literal or cheesy EQ diagram.
+## Practical website content
 
-Musical qualities may be implied organically:
-
-- high-frequency information shimmers near the surface
-- midrange behaves as articulate flowing currents
-- bass is enormous slow-moving pressure beneath the composition
-- transients create sharper momentary disturbances
-- space exists as width, separation, and layered depth
-
-The camera should make the visitor feel that Ocean Mastering is listening into the mix.
-
-Possible thematic copy:
-
-- “Listen beneath the surface.”
-- “There is more in your mix.”
-- “Depth begins with listening.”
-
-### Chapter 3 — Interweaving / Balance / Support
-
-This is a central brand-defining chapter.
-
-What appeared to be one line reveals multiple translucent currents or filaments. They are abstract interacting musical energies, not literal multitrack stems.
-
-The currents:
-
-- move independently
-- retain individuality
-- curve around one another
-- support one another
-- weave together
-- become structurally interdependent
-
-Nothing is crushed into sameness and nothing disappears. Each element becomes stronger because the elements now belong together.
-
-The motion should evoke currents weaving, threads braiding, wave interference, and musical counterpoint without becoming literal fabric imagery.
-
-Important concept: **“Nothing has to disappear for everything to belong.”** Final wording may evolve, but the meaning must remain.
-
-The image should suggest:
-
-- bass receives support
-- vocals receive room
-- transients remain alive
-- density surrounds rather than crushes
-- width expands without disconnecting the center
-- dynamics feel intentional instead of merely reduced
-
-This chapter must distinguish Ocean Mastering from the stereotype that mastering simply means making music louder.
-
-### Chapter 4 — The signature transformation
-
-This is the signature visual moment and must be memorable.
-
-The camera pulls out from the increasingly complex internal signal. Interwoven filaments resolve into one moving structure that first appears to be an audio waveform. Perspective changes, revealing genuine three-dimensional volume. The same waveform becomes a water wave.
-
-Do not use a cut or cheap crossfade. The visitor should understand the waveform and ocean swell as the same object from different viewpoints.
-
-Transformation logic:
-
-**line → thickness → volume → water → trough → crest → light through crest → ocean wave**
-
-The inverse transformation may recur later:
-
-**ocean swell → camera rotation → compressed profile → audio waveform**
-
-The recurring **WATER WAVE ⇄ AUDIO WAVEFORM** relationship is the central metaphor of Ocean Mastering.
-
-### Chapter 5 — Depth / The wave becomes whole
-
-The previously fragile signal becomes unmistakably more dimensional, with deeper troughs, confident movement, richer internal complexity, stronger form, preserved transients, and structural coherence.
-
-Never depict the transformation as a small waveform becoming a solid rectangle. The master remains alive and may display more movement than before because it can now fully inhabit itself.
-
-Potential tonal language:
-
-- “Depth, not density.”
-- “Power without losing movement.”
-- “Your music, fully itself.”
-
-### Chapter 6 — Translation / The journey through environments
-
-The mastered wave begins traveling through different playback environments. This borrows United Carriers’ journey logic conceptually: freight crosses environments there; music crosses playback systems here.
-
-The visitor follows the same wave through contexts such as:
-
-- mastering studio
-- headphones
-- car
-- home speakers
-- club or venue
-- small speaker or phone
-- open environment
-
-Avoid a literal slideshow of devices. Each playback context should remain within the poetic oceanic language and behave like an environment the wave must survive:
-
-- studio: controlled water or calm basin
-- headphones: intimate enclosed current
-- car: moving channel or confined environment
-- club: enormous resonant chamber or powerful pressure
-- small speaker: narrow passage or constrained waterway
-- open system: ocean
-
-The environment changes. The wave remains recognizably itself. This is mastering translation.
-
-Core idea: **“Every system. Still your music.”**
-
-### Chapter 7 — Open water / Release
-
-The wave exits controlled environments and the space opens dramatically into the full ocean. The camera is no longer trapped inside the signal. The master is complete and ready to leave the room.
-
-The individual wave now exists among countless other waves without disappearing. It remains identifiable while belonging to something larger, representing artists, listeners, records, releases, culture, and community.
-
-The emotional destination:
-
-- the record has left the mastering room
-- it is no longer merely a file
-- it is participating in culture
-
-Potential closing language:
-
-- “Your music is ready to leave the room.”
-- “Send it out into the world.”
-
-Primary CTA: **START A MASTER** or an equally concise equivalent.
-
-The CTA must feel like the natural final action of the journey, not a generic footer button.
-
-## Continuous transformation map
-
-The experience must feel like one metamorphosis with a strong sense of having traveled:
-
-**ONE THIN LINE**
-→ ripple
-→ water surface
-→ audio signal
-→ descent below the surface
-→ internal currents
-→ multiple filaments
-→ interweaving
-→ coherent signal
-→ waveform
-→ three-dimensional ocean wave
-→ deeper / stronger / more alive
-→ travel through environments
-→ open water
-→ the world
-→ **START A MASTER**
-
-## Scroll and motion behavior
-
-Scrolling must feel cinematic, intentional, reversible where practical, and continuously legible as advancement through the journey.
-
-Appropriate techniques may include:
-
-- pinned scenes
-- scroll-linked camera movement
-- progressive 3D transformations
-- sparing parallax
-- object morphing
-- viewpoint changes
-- carefully timed copy entrances and exits
-- depth changes
-- controlled acceleration and deceleration
-
-Avoid:
-
-- random objects flying in merely because the user scrolled
-- excessive or repetitive text animation
-- every heading using the same fade-up
-- gimmicky parallax
-- unpleasant scroll-jacking
-- dead scroll zones without visible progress
-- animations requiring impossibly precise scrolling
-- fragile mobile behavior
-
-Scrolling down generally advances time and transformation. Scrolling upward should reverse the visual transformation gracefully wherever practical.
-
-## Visual language
-
-Ocean Mastering should feel boutique, premium, artistic, intelligent, contemporary, restrained, cinematic, tactile, musical, and immersive.
-
-It must not resemble:
-
-- corporate SaaS
-- a generic recording studio
-- an EDM template
-- a cyberpunk audio plug-in
-- a cheesy neon equalizer
-- a stock-photo musician site
-- giant mixing-console photography
-- cliché soundwave graphics
-- a generic blue-gradient technology brand
-
-Use predominantly near-black, midnight, and deep-ocean tones. Luminous color is selective. Water, reflection, refraction, specular highlights, and subtle light carry the richness.
-
-The final open-ocean chapter may become brighter and more expansive than the opening. The progression from darkness and intimacy toward light and openness reinforces the narrative.
-
-## Typography and copy
-
-Typography is confident and editorial. Large statements are sparse. Do not cover the cinematic experience with paragraphs. Copy acts as punctuation, not narration the visitor must constantly stop to read.
-
-The following phrases are tonal direction, not immutable copy:
-
-- “Your music is already there.”
-- “Listen beneath the surface.”
-- “Nothing has to disappear for everything to belong.”
-- “Depth, not density.”
-- “Power without losing movement.”
-- “Every system. Still your music.”
-- “Your music is ready to leave the room.”
-- “Send it out into the world.”
-
-Wording may evolve, but meaning must be preserved.
-
-## Information architecture and business utility
-
-The homepage is the emotional and conceptual centerpiece, but the website must remain a useful professional mastering-house website.
-
-Audit the current Ocean Mastering site before discarding content. Preserve useful business information such as:
-
-- what Ocean Mastering does
-- mastering philosophy
-- services
-- process
-- credits, work, or portfolio where available
-- engineer and artist perspective
-- rates, quote, or start-master process as appropriate
-- file preparation and delivery information where applicable
-- contact and booking paths
-- other useful current-site information
-
-Do not force every business detail into the cinematic scroll. Supporting pages, drawers, modals, or clear secondary content are preferable when they preserve the homepage’s narrative focus.
-
-## Navigation
-
-Navigation remains available without undermining immersion. A restrained persistent system may initially recede into the environment and become clearer when needed.
-
-Visitors must always have an escape hatch to reach:
+Persistent restrained navigation provides direct access to:
 
 - Services
 - Work / Credits
 - About
-- Start a Master / Contact
+- Start a Master
 
-Do not trap visitors in a six-minute art installation.
+Do not interrupt the cinematic sequence with ordinary business sections. Detailed services, process, credits, listening examples, founder information, and contact content may appear after the sequence or in supporting pages/drawers.
 
-## Technical direction
+Preserve verified factual content from the current site, including the founder story, service purpose, real audio examples when useful, credits, testimonials, Austin address, and email. Do not preserve the inaccurate “ISO 12845:2018” claim.
 
-The site must deploy reliably to static GitHub Pages under `https://github.com/Ocean-Mastering`.
+## Visual language
 
-Requirements:
+- near-black, midnight, and blue-black water
+- sparse luminous cyan/sea-glass highlights
+- subtle silver reflection
+- selective richer color during ascent and reveal
+- stylized-real, tactile water rather than photorealism at any cost
+- no legacy graphic assets
+- no remote stock or Wix imagery
 
-- no required always-running backend
-- no server-only rendering dependency without an explicit static export
-- reproducible deployment
-- routing compatible with the final Pages configuration
-- asset paths compatible with GitHub Pages
-- documented project structure and deployment steps
-- inspect the organization and existing repositories before assuming a repository name
+## Technical architecture requirements
 
-Choose architecture based on repository reality and the experience’s needs. Technologies may include modern HTML/CSS/JS, React, Vite, Three.js, React Three Fiber, GSAP, ScrollTrigger, WebGL, SVG, Canvas, or CSS transforms only when justified.
+- Static semantic HTML, authored CSS, and modular JavaScript suitable for GitHub Pages.
+- A locally vendored, version-pinned WebGL library is acceptable when it materially serves the waterline and depth story.
+- One persistent renderer and scene for the primary sequence.
+- Rendering logic separated from narrative state and DOM copy.
+- Native document scrolling; no scroll-jacking.
+- Deterministic, normalized, reversible scene state.
+- Texture-light procedural shaders and instanced/point-based particles.
+- Capped device pixel ratio and adaptive geometry/particle quality tiers.
+- Pause rendering when hidden or far outside the cinematic sequence.
+- No prerendered frame sequence and no always-running backend.
 
-Do not introduce heavy frameworks for fashion. Priorities, in order:
+## Mobile
 
-1. visual result
-2. interaction quality
-3. maintainability
-4. performance
-5. GitHub Pages reliability
+Mobile keeps the full story. It may reduce geometry, particles, caustics, current count, and lateral camera movement, but may not replace the narrative with cards or static sections. Touch scrolling must remain native and smooth.
 
-## 3D and WebGL principles
+## Reduced motion
 
-The water-to-waveform transformation may justify WebGL or Three.js, but the metaphor matters more than physically perfect fluid simulation.
+`prefers-reduced-motion` replaces continuous travel with a sequence of stable authored depth states and restrained transitions. Narrative order, content, navigation, and spatial logic remain understandable.
 
-If 3D is used:
+## Accessibility
 
-- build reusable scene architecture
-- separate rendering logic from narrative state
-- tie transformations to normalized scroll progress
-- avoid one giant unmaintainable component
-- avoid unnecessary high-poly geometry
-- optimize shaders and assets
-- prefer procedural approaches
-- lazy-load expensive resources where appropriate
-- cap device pixel ratio sensibly
-- test integrated and mobile GPU behavior
-- provide fallbacks
+- Semantic HTML copy in logical reading order
+- Skip link past the cinematic sequence
+- Conventional persistent navigation
+- Visible keyboard focus
+- WCAG-conscious contrast in every depth/light state
+- Canvas marked decorative with a complete text alternative nearby
+- No autoplay audio
+- Important information available without WebGL or JavaScript
 
-Water should feel elegant and stylized-real, not computationally extravagant for its own sake.
+## Performance
 
-## Responsive experience
+- Smoothness is a premium feature; a beautiful 12 FPS result fails.
+- No giant videos or hundreds of prerendered images.
+- Avoid render-loop allocations.
+- Use procedural geometry/shaders and efficient particle buffers.
+- Cap device pixel ratio.
+- Adapt mesh and particle density to viewport and capability.
+- Lazy-load secondary content and audio.
+- Pause work on hidden pages.
+- Test desktop and real mobile hardware before deployment.
 
-Desktop may be the most cinematic, but mobile is an authored version of the same story, not a shrunken desktop composition.
+## Success test
 
-Mobile may use simplified geometry, shorter camera paths, lower particle density, different copy placement, fewer simultaneous effects, or altered framing while retaining the full narrative.
+Hide all marketing copy, mute the browser, and steadily scrub from top to bottom. A viewer must unmistakably see:
 
-## Performance requirements
+**calm ocean → surface approach → water becomes signal → physical submergence → surface overhead → shimmer → currents → pressure → relationships become coherent → camera turns → ascent through the same layers → physical emergence → the same ocean revealed as deeper, clearer, and more alive**
 
-The site must feel luxurious rather than sluggish.
-
-Targets:
-
-- fast initial usable render
-- progressive loading of expensive cinematic assets
-- stable frame rates
-- no enormous blocking video without strong justification
-- no uncompressed giant textures
-- minimal layout shift
-- controlled main-thread work
-- thoughtful GPU acceleration
-- paused expensive rendering when unnecessary
-- respect for low-power and mobile environments
-- procedural, vector, and shader approaches preferred over giant frame sequences
-- never ship hundreds of megabytes of images to fake the experience
-
-## Accessibility and reduced motion
-
-Implement `prefers-reduced-motion`.
-
-For reduced-motion users:
-
-- preserve narrative order
-- replace complex scroll-linked camera motion with restrained transitions or composed static states
-- keep all content available
-- keep navigation usable
-- never make important information dependent on animation
-
-Also require:
-
-- semantic HTML
-- keyboard accessibility
-- readable contrast
-- visible, sensible focus states
-- meaningful labels
-- content understandable without WebGL
-
-## Implementation process
-
-After this contract exists:
-
-1. Inspect the local repository.
-2. Audit the current Ocean Mastering website for content, services, brand elements, assets, contacts, and migration candidates.
-3. Inspect United Carriers for conceptual interaction and narrative reference without cloning it.
-4. Establish architecture based on evidence.
-5. Define named chapters and normalized progress ranges.
-6. Build the core visual prototype first:
-   - thin signal
-   - water/sound ambiguity
-   - descent
-   - interwoven currents
-   - waveform-to-three-dimensional-water transformation
-   - open-ocean reveal
-7. Prove the central metaphor before over-investing in secondary pages.
-8. Integrate typography and sparse copy after the visual language works.
-9. Add supporting business information and navigation.
-10. Optimize desktop, mobile, performance, and accessibility.
-11. Configure GitHub Pages.
-12. Document structure and deployment.
-
-## Coding standards
-
-The codebase must be immediately understandable to a future instance.
-
-Favor:
-
-- descriptive modules and components
-- narrative chapter names matching this contract
-- concise comments explaining why complex animation math exists
-- centralized chapter ranges and configuration
-- normalized scroll progress
-- reusable animation and interpolation helpers
-- clear asset organization
-- no scattered unexplained magic numbers
-- documentation updated as architecture evolves
+If instead the recording reads as headline, fade, paragraph, ocean image, headline, effect, stop and redesign.
 
 ## Implementation decisions
 
-This section records decisions that may evolve. Do not treat them as non-negotiable unless explicitly promoted above.
-
-- **2026-08-18:** The required local project and Git root is `/Users/JDub/Desktop/OceanMastering_website`.
-- **2026-08-18:** Use a static progressive-enhancement architecture: semantic HTML, authored CSS, native JavaScript modules, and one locally vendored, version-pinned Three.js module for the signature 3D scene. Do not use a component framework, page-builder runtime, remote CDN, or animation framework.
-- **2026-08-18:** The waveform and water are one continuous mesh. Vertex depth, displacement, normals, material, and camera perspective evolve with scroll; a replacement mesh or crossfade is not acceptable.
-- **2026-08-18:** Use native document scrolling with a deterministic normalized progress model and critically damped visual interpolation. Reduced-motion mode uses authored still states and avoids long pinned travel.
-- **2026-08-18:** Create the organization Pages repository as `Ocean-Mastering/Ocean-Mastering.github.io` and publish from the root of `main` after local prototype validation.
-- **2026-08-18:** Do not migrate the current site's “ISO 12845:2018” claim. The official ISO catalogue shows ISO/TR 12845:2010 concerns statistical experiment design, not audio mastering.
-- **2026-08-18:** All visual graphics must be newly authored inline as procedural WebGL, inline SVG, or CSS-generated art. Do not reuse the current site's logo, cover artwork, founder/studio photography, Wix imagery, or other legacy graphic assets. Real audio examples and factual business copy remain valid non-visual source material.
+- **2026-08-18:** The user superseded the first implementation and made **BELOW THE SURFACE** authoritative.
+- **2026-08-18:** Preserve the rejected version only in Git history; do not reuse its page composition, portfolio graphics, equipment diagrams, custom player, or surface-to-mesh reveal.
+- **2026-08-18:** Continue to use a static progressive-enhancement architecture and organization Pages repository plan unless testing proves a change necessary.
+- **2026-08-18:** Build the new scene from a true above/below ocean camera model with one persistent double-sided water surface, procedural depth layers, and scroll-derived particle/current fields.
+- **2026-08-18:** Major physical phase uses scroll progress rather than autonomous elapsed time. Only negligible completed-finale breathing may remain time-based.
+- **2026-08-18:** Do not migrate legacy visual assets or the inaccurate standards claim.
 
 ## Current implementation state
 
 Last updated: **2026-08-18**
 
-### Completed
+### Complete and still valid
 
-- Created this authoritative project contract as the mandatory first project artifact.
-- Recorded the complete approved narrative, brand philosophy, non-negotiables, technical constraints, implementation order, and quality requirements.
-- Initialized this folder as a Git repository on `main` and committed the contract.
-- Audited the current Ocean Mastering site, its content, media inventory, and migration risks.
-- Studied the conceptual reference at multiple scroll positions and documented transferable interaction principles.
-- Verified access to the empty `Ocean-Mastering` GitHub organization through the active `jonny-dub` account.
-- Selected and documented the rendering, scroll, accessibility, and deployment architecture.
-- Built and visually validated the first complete desktop signal-to-sea transformation, including its reversible line, current, surface, depth, and open-water states.
-- Established the all-new inline graphic system and removed every downloaded legacy visual asset from the project.
+- Local folder is the Git root on `main`.
+- Git identity is configured for `jonny-dub`.
+- Current-site factual/audio audit and conceptual-reference audit exist.
+- `Ocean-Mastering` organization access is verified and the organization has no repositories.
+- Static organization Pages repository target is `Ocean-Mastering/Ocean-Mastering.github.io`.
+- The rejected version is recoverable at commit `d90b5fa`.
+- This contract now records **BELOW THE SURFACE** as authoritative.
+- The superseded homepage implementation and its media/dependency assets have been removed from the working tree.
+- `ARCHITECTURE.md` now defines the replacement continuous above/below-water scene.
+
+### Superseded
+
+- The previous signal-to-sea mesh homepage, inline portfolio graphics, studio diagrams, and section-based business content are rejected and must not be carried into the replacement build.
 
 ### Remaining
 
-- Complete responsive, reduced-motion, audio-player, and business-content validation.
-- Test, optimize, deploy, and verify GitHub Pages.
+1. Build and validate the new physical waterline prototype.
+2. Implement centralized eleven-shot choreography.
+3. Validate text-hidden legibility and reverse scrubbing.
+4. Author mobile and reduced-motion modes.
+5. Add restrained navigation and supporting business content after the cinematic sequence succeeds.
+6. Optimize, test, create the GitHub repository, deploy, and verify Pages.
 
-### Current architecture
+## Final instruction
 
-- Static HTML/CSS/native JavaScript modules with a locally vendored, pinned Three.js module for the procedural signal-to-water scene.
-- Native scrolling drives a single normalized, reversible narrative state through a damped render loop.
-- Full details are in `ARCHITECTURE.md`.
-
-### Key files
-
-- `PROJECT_CONTRACT.md` — authoritative creative and technical work order.
-- `DISCOVERY_AUDIT.md` — current-site, reference, asset, accuracy, and GitHub findings.
-- `ARCHITECTURE.md` — rendering, scroll, performance, accessibility, and deployment decisions.
-
-### Known issues
-
-- Phone-sized browser emulation could not be performed through the active in-app browser surface; responsive CSS and mobile geometry still require device-level validation.
-- The newly authored inline portfolio, listening-field portrait, and equipment schematics require a final visual QA pass.
-- No GitHub repository has been created yet; creation follows local prototype validation.
-
-### Next logical tasks
-
-1. Validate the new inline graphics, custom audio player, and long-form business content in the browser.
-2. Validate reverse scrolling, phone framing, reduced motion, keyboard flow, and WebGL fallback behavior.
-3. Optimize payloads and metadata, then create and deploy the organization Pages repository.
-
-## Experience in one sentence
-
-A visitor enters Ocean Mastering through a single fragile line, discovers the complex musical world beneath its surface, watches its energies weave together into a deeper and more coherent signal, sees that signal become a living ocean wave, follows it intact through the environments where real music must survive, and finally releases it into open water—whole, alive, and ready for the world.
+Implement toward the camera journey—not toward a normal website decorated with ocean animation.

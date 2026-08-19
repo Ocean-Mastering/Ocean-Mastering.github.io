@@ -1,109 +1,189 @@
-# Ocean Mastering Technical Architecture
+# BELOW THE SURFACE — Technical Architecture
 
 Last updated: 2026-08-18
 
-## Decision
+## Purpose
 
-Build a static, progressive-enhancement website with semantic HTML, authored CSS, and small native JavaScript modules. Use a locally vendored, version-pinned Three.js module only for the continuous signal-to-water scene. Do not use a component framework, page-builder runtime, animation framework, or remote CDN.
-
-This gives the signature visual a real 3D geometry and camera while preserving a fast, understandable GitHub Pages deployment.
+This architecture exists to make scroll position the deterministic playhead for one continuous above-water, underwater, and return journey. It deliberately replaces the superseded line-to-mesh implementation.
 
 ## Runtime shape
 
 ```text
 index.html
-├── semantic navigation and chapter copy
-├── pinned visual stage
-│   ├── WebGL canvas (enhancement)
-│   └── CSS/SVG still-life fallback
-├── listening/work section
-├── process/about section
-└── contact/footer
-
-assets/
-├── brand/
-├── audio/
-├── fonts/
-└── vendor/three.module.min.js
+├── semantic persistent navigation
+├── one 700vh cinematic scroll region
+│   ├── sticky 100svh visual stage
+│   ├── one WebGL canvas
+│   ├── sparse semantic copy layer
+│   └── progress/depth orientation affordance
+├── concise post-cinematic business content
+└── semantic contact/footer
 
 scripts/
-├── main.js                 boot, capabilities, lifecycle
-├── scroll-controller.js    normalized progress and damping
-├── narrative.js            chapter ranges and DOM state
-└── signal-sea.js           WebGL scene and morph geometry
-
-styles/
-├── base.css                tokens, reset, typography, accessibility
-├── narrative.css           pinned chapters and transitions
-└── content.css             business sections and responsive layout
+├── main.js                    lifecycle and capability boot
+├── scroll-playhead.js         native scroll → exact normalized progress
+├── storyboard.js              authoritative shot ranges and interpolated state
+├── scene/
+│   ├── below-surface-scene.js renderer, camera, fog, scene lifecycle
+│   ├── water-surface.js       one double-sided displaced ocean surface
+│   ├── particles.js           depth-aware procedural flow tracers
+│   ├── currents.js            volumetric current-density fields
+│   ├── pressure.js            slow deep-water displacement field
+│   └── light-field.js         sun, caustics, beams, attenuation
+└── copy-layer.js              one thought at a time from storyboard state
 ```
 
-The final file split may evolve, but responsibilities must remain this explicit.
+The exact split may evolve, but state, rendering systems, and DOM must remain separate.
 
-All site graphics are code-native. WebGL supplies the continuous environment; inline SVG supplies semantic illustrations and equipment studies; CSS supplies portfolio signal fields and smaller decorative systems. Raster legacy artwork is intentionally absent.
+## State contract
 
-## The persistent object
+The renderer receives one immutable state object derived from progress:
 
-The signal and sea are one mesh.
+```js
+{
+  progress,
+  shot,
+  camera: { position, target, fov, submersion },
+  surface: { distance, amplitude, detail, signalRead, reveal },
+  atmosphere: { fogDensity, fogColor, exposure, causticStrength },
+  particles: { density, speed, shimmer, coherence, depthBias },
+  currents: { visibility, scale, turbulence, separation, coherence },
+  pressure: { amplitude, phase, scale },
+  light: { surface, beam, ambient, color },
+  copy: { id, visibility, position },
+  quality
+}
+```
 
-- Begin with a ribbon-like grid whose depth rows are collapsed toward the same plane.
-- Its centerline is a fragile audio waveform generated from a deterministic harmonic function.
-- As scroll progress advances, spread those same vertices in depth, introduce low-frequency displacement across the grid, and rotate the camera downward.
-- The centerline never disappears; it becomes the ridge and energy path of the water surface.
-- Surface normals, light, opacity, and color evolve with the geometry. No replacement mesh and no opacity crossfade may perform the transformation.
-- The mastered state stays dynamic and breathable. It gains coherence and depth, not brick-wall uniformity.
+`storyboard.js` is the single authority for shot ranges and transition curves. Render modules may interpret state but may not invent narrative timing.
 
 ## Scroll model
 
-- Use native document scrolling for accessibility, history, touch, and browser ergonomics.
-- Each narrative chapter owns an explicit scroll range expressed as normalized page progress.
-- A critically damped interpolation loop follows actual scroll progress so wheel and touch input produce fluid visual motion without hijacking scrolling.
-- DOM copy uses the same chapter progress as the WebGL scene; no independent animation timelines drift out of sync.
-- Scene state must be derivable from a single progress value, which makes back-scrolling deterministic.
-- The controller pauses rendering when the page is hidden and when the visual stage is far offscreen.
+- Use native window scrolling.
+- Calculate exact target progress from cinematic-region top and travel distance.
+- Camera and all major physical state render directly from target progress so the scene stops and reverses with scroll.
+- A very small critically damped presentation lag may soften wheel input, but it must never make the visitor feel disconnected from the playhead and must converge rapidly.
+- Copy uses the same state and cannot drift on an independent timeline.
+- `storyTime = progress × STORY_DURATION` drives all wave, current, particle, pressure, and caustic phases.
+- Autonomous elapsed time is disabled throughout the journey; an optional negligible finale drift can blend in after `0.985`.
+
+## Scene model
+
+### Persistent surface
+
+One large displaced plane at world `y = 0` is rendered double-sided. It is always the visible mix/surface anchor.
+
+- From above, camera sees dark sky, reflection, and restrained crest highlights.
+- At the threshold, the plane intersects the view and naturally divides air/depth.
+- From below, the same geometry shows a refracted luminous underside.
+- Vertex displacement is low-amplitude and broad at opening, increasingly legible as a signal profile near the waterline, and richer-but-natural at the finale.
+
+### Camera path
+
+The camera curve is vertically dominant:
+
+```text
+slightly above surface
+→ inches above
+→ surface intersection
+→ near-surface depth
+→ mid-water currents
+→ deep pressure field
+→ deepest hover
+→ upward reversal
+→ near-surface underside
+→ surface intersection
+→ elevated final reveal
+```
+
+Target and pitch change sparingly. Surface distance remains readable in every underwater shot.
+
+### Waterline treatment
+
+Use geometry and depth-aware shader state, not a fullscreen wipe:
+
+- double-sided surface material;
+- camera-height uniform;
+- above/underwater fog and exposure interpolation around the threshold;
+- underside refraction and caustic projection;
+- optional clipping plane only where it strengthens half-submerged framing;
+- subtle lens distortion constrained to the underwater portion.
+
+### Particles
+
+One GPU-friendly point field samples a deterministic flow function from position, progress-derived story time, depth, and current-coherence state. Particle buffers are initialized once; shader displacement avoids per-frame CPU allocations.
+
+### Currents
+
+Currents are volumetric density regions expressed by particle flow, faint translucent volumes, and refractive light bending. They must never read as hard ribbons. Existing fields change relationship during mastering; objects are not swapped.
+
+### Pressure
+
+Deep pressure is a very low-frequency world-space displacement applied across particles, current volumes, fog density, and tiny camera offsets. It changes scale, not loudness.
 
 ## Progressive enhancement
 
-- The core proposition, services, work, about material, and contact information are present in HTML before JavaScript runs.
-- If WebGL is unavailable, a lightweight SVG/CSS waveform-to-wave illustration remains visible.
-- `prefers-reduced-motion: reduce` switches to representative still states, removes continuous drift, and avoids long pinned travel.
-- A skip link and conventional navigation provide direct escape from the cinematic sequence.
+- Cinematic copy and practical information exist in semantic HTML.
+- Without WebGL, an original inline SVG depth section shows the same surface/descent/ascent structure as stable states.
+- Reduced motion uses a small set of authored stable scene states with restrained transitions.
+- A skip link bypasses the cinematic region.
+- Navigation never depends on canvas.
 
-## Performance budgets
+## Quality tiers
 
-- No runtime requests to package CDNs.
-- Keep the initial HTML/CSS/JS payload lean; defer portfolio images and audio metadata below the narrative.
-- Cap WebGL device pixel ratio, adapt mesh resolution to viewport capability, and avoid allocations in the render loop.
-- Use texture-free procedural material in the core scene.
-- Pause audio and animation work when not needed.
-- Optimize images to modern formats with explicit dimensions and responsive sources.
+### High
 
-## Accessibility model
+- capped DPR 1.75
+- higher water subdivisions
+- full particle budget
+- multiple current volumes
+- refined caustic pass
 
-- Motion never carries the only copy of information.
-- Chapter copy remains real HTML with a logical reading order.
-- Canvas is decorative and excluded from the accessibility tree; a concise textual explanation accompanies it.
-- All interactive controls have visible focus states and minimum touch targets.
-- Audio never autoplays and always exposes play/pause, timeline, current time, duration, and track information.
-- Color contrast is tested in every background state.
+### Balanced
+
+- capped DPR 1.4
+- medium water subdivisions
+- reduced particles/current volumes
+- simplified caustics
+
+### Mobile / low-power
+
+- capped DPR 1.2–1.35
+- low water subdivisions
+- one efficient particle field
+- fewer current volumes
+- no expensive post-processing
+- reduced lateral camera drift
+
+Every tier retains the full story.
+
+## Performance rules
+
+- No allocations in the render loop.
+- No video or image-sequence simulation.
+- No external runtime CDN.
+- Pause on `document.hidden` and when the cinematic stage is far outside the viewport.
+- Defer non-cinematic audio and supporting content.
+- Dispose GPU resources on genuine unload while supporting back-forward cache restore.
 
 ## Deployment
 
-- Repository: `Ocean-Mastering/Ocean-Mastering.github.io`
-- Default branch: `main`
-- Pages source: branch deployment from `/ (root)`
-- Local Git root: `/Users/JDub/Desktop/OceanMastering_website`
-- No generated build directory is required.
-- Add a custom domain only after the organization Pages URL is verified and DNS ownership is confirmed.
+- Static root deployment from `main`.
+- Target repository: `Ocean-Mastering/Ocean-Mastering.github.io`.
+- Runtime assets use relative URLs.
+- Custom domain is configured only after organization Pages works at its default URL.
 
 ## Prototype gate
 
-Before substantial secondary content work, the prototype must prove:
+Do not rebuild portfolio polish or secondary visual systems until a text-hidden screen recording clearly shows:
 
-1. the line feels fragile and alive;
-2. the underwater reveal adds perceptible depth;
-3. harmonic strands visibly interweave without becoming chaotic;
-4. the exact same mesh becomes a volumetric water surface under camera rotation;
-5. reverse scrolling reconstructs every state cleanly;
-6. mobile maintains legibility and stable frame pacing;
-7. reduced motion communicates the same narrative without continuous animation.
+1. calm ocean and downward surface approach;
+2. water/profile ambiguity;
+3. physical half-submerged threshold;
+4. surface overhead throughout descent;
+5. near-surface shimmer, mid-water current, and deep pressure as one connected space;
+6. existing currents becoming more mutually supportive;
+7. a clear deepest hover and upward reversal;
+8. ascent through the same layers;
+9. physical emergence;
+10. the same ocean revealed with richer dimension.
