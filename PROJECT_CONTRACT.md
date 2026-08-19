@@ -501,6 +501,7 @@ This section records decisions that may evolve. Do not treat them as non-negotia
 - **2026-08-18:** Use native document scrolling with a deterministic normalized progress model and critically damped visual interpolation. Reduced-motion mode uses authored still states and avoids long pinned travel.
 - **2026-08-18:** Create the organization Pages repository as `Ocean-Mastering/Ocean-Mastering.github.io` and publish from the root of `main` after local prototype validation.
 - **2026-08-18:** Do not migrate the current site's “ISO 12845:2018” claim. The official ISO catalogue shows ISO/TR 12845:2010 concerns statistical experiment design, not audio mastering.
+- **2026-08-18:** All visual graphics must be newly authored inline as procedural WebGL, inline SVG, or CSS-generated art. Do not reuse the current site's logo, cover artwork, founder/studio photography, Wix imagery, or other legacy graphic assets. Real audio examples and factual business copy remain valid non-visual source material.
 
 ## Current implementation state
 
@@ -515,11 +516,12 @@ Last updated: **2026-08-18**
 - Studied the conceptual reference at multiple scroll positions and documented transferable interaction principles.
 - Verified access to the empty `Ocean-Mastering` GitHub organization through the active `jonny-dub` account.
 - Selected and documented the rendering, scroll, accessibility, and deployment architecture.
+- Built and visually validated the first complete desktop signal-to-sea transformation, including its reversible line, current, surface, depth, and open-water states.
+- Established the all-new inline graphic system and removed every downloaded legacy visual asset from the project.
 
 ### Remaining
 
-- Prototype and prove the central signal-to-sea transformation.
-- Build the full narrative and supporting business content.
+- Complete responsive, reduced-motion, audio-player, and business-content validation.
 - Test, optimize, deploy, and verify GitHub Pages.
 
 ### Current architecture
@@ -536,17 +538,15 @@ Last updated: **2026-08-18**
 
 ### Known issues
 
-- The central visual prototype has not yet been implemented or validated.
-- Approved current-site media has been inventoried but not yet migrated or optimized.
+- Phone-sized browser emulation could not be performed through the active in-app browser surface; responsive CSS and mobile geometry still require device-level validation.
+- The newly authored inline portfolio, listening-field portrait, and equipment schematics require a final visual QA pass.
 - No GitHub repository has been created yet; creation follows local prototype validation.
 
 ### Next logical tasks
 
-1. Vendor a pinned Three.js module and create the static application shell.
-2. Implement the normalized scroll controller and chapter state model.
-3. Prototype the persistent mesh from fragile line through open water.
-4. Validate reverse scrolling, mobile framing, reduced motion, and fallback behavior.
-5. Only after the prototype gate passes, migrate approved media and build supporting business sections.
+1. Validate the new inline graphics, custom audio player, and long-form business content in the browser.
+2. Validate reverse scrolling, phone framing, reduced motion, keyboard flow, and WebGL fallback behavior.
+3. Optimize payloads and metadata, then create and deploy the organization Pages repository.
 
 ## Experience in one sentence
 

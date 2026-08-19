@@ -22,8 +22,8 @@ index.html
 
 assets/
 ├── brand/
-├── images/
 ├── audio/
+├── fonts/
 └── vendor/three.module.min.js
 
 scripts/
@@ -39,6 +39,8 @@ styles/
 ```
 
 The final file split may evolve, but responsibilities must remain this explicit.
+
+All site graphics are code-native. WebGL supplies the continuous environment; inline SVG supplies semantic illustrations and equipment studies; CSS supplies portfolio signal fields and smaller decorative systems. Raster legacy artwork is intentionally absent.
 
 ## The persistent object
 

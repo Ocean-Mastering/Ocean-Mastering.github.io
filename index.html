@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#020b12">
+    <meta name="description" content="Ocean Mastering brings depth, movement, and reliable translation to records without erasing what makes them yours.">
+    <title>Ocean Mastering — From Signal to Sea</title>
+    <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/narrative.css">
+    <link rel="stylesheet" href="styles/content.css">
+    <script type="module" src="scripts/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#after-story">Skip the visual story</a>
+
+    <header class="site-header" data-site-header>
+      <a class="wordmark" href="#top" aria-label="Ocean Mastering, home">
+        <svg class="wordmark__mark" viewBox="0 0 64 32" aria-hidden="true">
+          <path d="M2 16c5.2 0 5.2-8 10.4-8s5.2 16 10.4 16S28 8 33.2 8s5.2 16 10.4 16S48.8 8 54 8s5.2 8 8 8"/>
+        </svg>
+        <span class="wordmark__type"><b>OCEAN</b><span>MASTERING</span></span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#listen">Listen</a>
+        <a href="#process">Process</a>
+        <a href="#about">About</a>
+        <a class="site-nav__cta" href="#contact">Start a master</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="narrative" data-narrative aria-labelledby="story-title">
+        <div class="visual-stage" data-visual-stage>
+          <canvas class="signal-canvas" data-signal-canvas aria-hidden="true"></canvas>
+
+          <svg class="signal-fallback" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+              <linearGradient id="fallbackLine" x1="0" x2="1">
+                <stop offset="0" stop-color="#2ab7c8" stop-opacity="0"/>
+                <stop offset=".25" stop-color="#53d3d5"/>
+                <stop offset=".62" stop-color="#b6f5e5"/>
+                <stop offset="1" stop-color="#416f9a" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <path d="M0 455 C180 455 210 448 300 455 S430 468 510 454 650 436 745 455 845 473 935 453 1050 446 1120 455 1270 462 1440 455" fill="none" stroke="url(#fallbackLine)" stroke-width="2"/>
+          </svg>
+
+          <div class="visual-stage__grain" aria-hidden="true"></div>
+          <div class="visual-stage__vignette" aria-hidden="true"></div>
+
+          <div class="depth-readout" aria-hidden="true">
+            <span data-depth-label>Surface</span>
+            <i></i>
+            <span data-depth-value>00.0</span>
+          </div>
+
+          <div class="story-progress" aria-hidden="true">
+            <span class="story-progress__label">Signal / sea</span>
+            <span class="story-progress__track"><i data-progress-bar></i></span>
+            <span class="story-progress__count"><b data-chapter-count>00</b> / 07</span>
+          </div>
+
+          <p class="motion-note" data-motion-note hidden>Reduced motion: story shown as a series of still states.</p>
+        </div>
+
+        <div class="chapter-track">
+          <article class="story-chapter story-chapter--arrival" data-chapter="0" data-start="0" data-end="0.135">
+            <div class="chapter-copy chapter-copy--center">
+              <p class="eyebrow">Ocean Mastering · Austin, Texas</p>
+              <h1 id="story-title">From signal<br>to sea.</h1>
+              <p class="chapter-copy__lead">Your music is already there.</p>
+              <p class="scroll-cue"><span></span> Enter the signal</p>
+            </div>
+          </article>
+
+          <article class="story-chapter story-chapter--mix" data-chapter="1" data-start="0.105" data-end="0.265">
+            <div class="chapter-copy chapter-copy--left">
+              <p class="eyebrow">01 · The mix</p>
+              <h2>Beautiful.<br>Exposed.<br>Becoming.</h2>
+              <p>A mix does not arrive broken. It arrives alive with choices—waiting for someone to hear how they belong together.</p>
+            </div>
+          </article>
+
+          <article class="story-chapter story-chapter--listen" data-chapter="2" data-start="0.235" data-end="0.405">
+            <div class="chapter-copy chapter-copy--right">
+              <p class="eyebrow">02 · Listen</p>
+              <h2>There is more<br>beneath the surface.</h2>
+              <p>Shimmer above. Articulation through the middle. Slow, immense pressure below. Depth begins with listening into the whole.</p>
+            </div>
+          </article>
+
+          <article class="story-chapter story-chapter--interweave" data-chapter="3" data-start="0.37" data-end="0.545">
+            <div class="chapter-copy chapter-copy--left">
+              <p class="eyebrow">03 · Interweave</p>
+              <h2>Nothing has to disappear for everything to belong.</h2>
+              <p>Individual energies keep their shape. They curve, support, and strengthen one another until the record moves as one.</p>
+            </div>
+          </article>
+
+          <article class="story-chapter story-chapter--transform" data-chapter="4" data-start="0.505" data-end="0.69">
+            <div class="chapter-copy chapter-copy--center chapter-copy--spare">
+              <p class="eyebrow">04 · Perspective</p>
+              <h2>The waveform<br>was water all along.</h2>
+            </div>
+          </article>
+
+          <article class="story-chapter story-chapter--depth" data-chapter="5" data-start="0.65" data-end="0.815">
+            <div class="chapter-copy chapter-copy--right">
+              <p class="eyebrow">05 · Depth</p>
+              <h2>The wave<br>becomes whole.</h2>
+              <ul class="principle-list" aria-label="Mastering principles">
+                <li>Depth, not density.</li>
+                <li>Power without crushing.</li>
+                <li>Clarity without sterility.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="story-chapter story-chapter--translation" data-chapter="6" data-start="0.775" data-end="0.925">
+            <div class="chapter-copy chapter-copy--left">
+              <p class="eyebrow">06 · Translation</p>
+              <h2>Every system.<br>Still your music.</h2>
+              <p>Studio. Headphones. Car. Club. Earbuds. The environment changes; the identity of the record holds.</p>
+              <div class="environment-list" aria-hidden="true"><span>Studio</span><span>Intimate</span><span>Moving</span><span>Immense</span><span>Open</span></div>
+            </div>
+          </article>
+
+          <article class="story-chapter story-chapter--release" data-chapter="7" data-start="0.885" data-end="1">
+            <div class="chapter-copy chapter-copy--center">
+              <p class="eyebrow">07 · Release</p>
+              <h2>Your music is ready<br>to leave the room.</h2>
+              <a class="button button--bright" href="#contact">Start a master <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="after-story" id="after-story">
+        <div class="section-intro" id="process">
+          <p class="eyebrow">The final step in record completion</p>
+          <h2>The sound in your head,<br><em>delivered.</em></h2>
+          <p>We bridge the space between a finished mix and a finished record—with precision, musical judgment, and translation you can trust.</p>
+        </div>
+
+        <div class="service-grid">
+          <article>
+            <span>01</span>
+            <h3>Listen first</h3>
+            <p>Every project begins with a clinical assessment and an artistic conversation. The process follows the record, not a preset.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Build cohesion</h3>
+            <p>Dynamic control, tonal balance, dimension, and sequencing work together while transients and musical movement stay alive.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Prove translation</h3>
+            <p>The master is tested as a record must live: across revealing monitors, ordinary systems, streaming delivery, and the world outside.</p>
+          </article>
+        </div>
+
+        <section class="listening-room" id="listen" aria-labelledby="listen-heading">
+          <header class="listening-room__header">
+            <div>
+              <p class="eyebrow">Selected work · Ten currents</p>
+              <h2 id="listen-heading">Hear the current.</h2>
+            </div>
+            <p>Ten records, ten distinct identities. The master changes with the music; the standard of care does not.</p>
+          </header>
+
+          <div class="audio-player" data-audio-player>
+            <div class="audio-player__now">
+              <div class="audio-player__meta">
+                <p><span data-track-number>01</span> / 10</p>
+                <h3 data-track-title>City of the Violet Crown</h3>
+                <p data-track-artist>JFI</p>
+              </div>
+
+              <div class="audio-player__signal" data-spectrum aria-hidden="true"></div>
+
+              <div class="audio-player__controls">
+                <button class="play-button" type="button" data-play aria-label="Play City of the Violet Crown" aria-pressed="false">
+                  <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 11 7-11 7Z"/></svg>
+                  <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zm6 0h4v14h-4z"/></svg>
+                </button>
+                <div class="audio-player__timeline">
+                  <label class="visually-hidden" for="track-progress">Track progress</label>
+                  <input id="track-progress" data-seek type="range" min="0" max="1000" value="0" step="1">
+                  <div><time data-current-time>0:00</time><time data-duration>3:57</time></div>
+                </div>
+              </div>
+              <audio data-audio preload="metadata"></audio>
+            </div>
+
+            <ol class="track-list" aria-label="Mastering selections">
+              <li><button type="button" data-track data-src="assets/audio/city-of-the-violet-crown.mp3" data-title="City of the Violet Crown" data-artist="JFI" data-duration="3:57" aria-current="true"><span>01</span><b>City of the Violet Crown</b><em>JFI</em><time>3:57</time></button></li>
+              <li><button type="button" data-track data-src="assets/audio/ac-current.mp3" data-title="AC Current" data-artist="Randomonium Studios" data-duration="2:54"><span>02</span><b>AC Current</b><em>Randomonium Studios</em><time>2:54</time></button></li>
+              <li><button type="button" data-track data-src="assets/audio/flat-top-mash.mp3" data-title="Flat Top Mash" data-artist="Origami Pigeon" data-duration="2:33"><span>03</span><b>Flat Top Mash</b><em>Origami Pigeon</em><time>2:33</time></button></li>
+              <li><button type="button" data-track data-src="assets/audio/you-keep-going.mp3" data-title="You Keep Going" data-artist="Mood Craft" data-duration="2:29"><span>04</span><b>You Keep Going</b><em>Mood Craft</em><time>2:29</time></button></li>
+              <li><button type="button" data-track data-src="assets/audio/perfect.mp3" data-title="Perfect" data-artist="JFI" data-duration="4:05"><span>05</span><b>Perfect</b><em>JFI</em><time>4:05</time></button></li>
+              <li><button type="button" data-track data-src="assets/audio/set-the-world-on-fire.mp3" data-title="Set the World on Fire" data-artist="Ferrairi Tzar" data-duration="3:02"><span>06</span><b>Set the World on Fire</b><em>Ferrairi Tzar</em><time>3:02</time></button></li>
+              <li><button type="button" data-track data-src="assets/audio/jazzify.mp3" data-title="Jazzify" data-artist="Jonathan Boyle" data-duration="2:36"><span>07</span><b>Jazzify</b><em>Jonathan Boyle</em><time>2:36</time></button></li>
+              <li><button type="button" data-track data-src="assets/audio/the-game-on.mp3" data-title="The Game On" data-artist="Chris Phaze" data-duration="2:21"><span>08</span><b>The Game On</b><em>Chris Phaze</em><time>2:21</time></button></li>
+              <li><button type="button" data-track data-src="assets/audio/zincon.mp3" data-title="Zincon" data-artist="HVB Music Group" data-duration="2:24"><span>09</span><b>Zincon</b><em>HVB Music Group</em><time>2:24</time></button></li>
+              <li><button type="button" data-track data-src="assets/audio/like-bubble-gum.mp3" data-title="Like Bubble Gum" data-artist="Where Is Lulu" data-duration="2:22"><span>10</span><b>Like Bubble Gum</b><em>Where Is Lulu</em><time>2:22</time></button></li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="portfolio" aria-labelledby="portfolio-heading">
+          <header>
+            <p class="eyebrow">Records completed</p>
+            <h2 id="portfolio-heading">A wider body<br>of water.</h2>
+          </header>
+          <div class="portfolio-grid">
+            <figure style="--hue: 176; --turn: 12deg"><div class="generative-cover" aria-hidden="true"><span></span><i></i></div><figcaption><b>Advocacy</b><span>The Path of Decoherence</span></figcaption></figure>
+            <figure style="--hue: 203; --turn: -18deg"><div class="generative-cover" aria-hidden="true"><span></span><i></i></div><figcaption><b>No Terror in the Bang</b><span>Heal</span></figcaption></figure>
+            <figure style="--hue: 160; --turn: 31deg"><div class="generative-cover" aria-hidden="true"><span></span><i></i></div><figcaption><b>The World Is Quiet Here</b><span>Zon</span></figcaption></figure>
+            <figure style="--hue: 222; --turn: -38deg"><div class="generative-cover" aria-hidden="true"><span></span><i></i></div><figcaption><b>Exploring Birdsong</b><span>Dancing in the Face of Danger</span></figcaption></figure>
+            <figure style="--hue: 186; --turn: 52deg"><div class="generative-cover" aria-hidden="true"><span></span><i></i></div><figcaption><b>Sermon of Golden Verse</b><span>Self-titled</span></figcaption></figure>
+            <figure style="--hue: 147; --turn: -62deg"><div class="generative-cover" aria-hidden="true"><span></span><i></i></div><figcaption><b>Omnerod</b><span>The Amensal Rise</span></figcaption></figure>
+            <figure style="--hue: 212; --turn: 71deg"><div class="generative-cover" aria-hidden="true"><span></span><i></i></div><figcaption><b>Nospūn</b><span>Opus</span></figcaption></figure>
+            <figure style="--hue: 169; --turn: -83deg"><div class="generative-cover" aria-hidden="true"><span></span><i></i></div><figcaption><b>Horrendous</b><span>Ontological Mysterium</span></figcaption></figure>
+            <figure style="--hue: 193; --turn: 98deg"><div class="generative-cover" aria-hidden="true"><span></span><i></i></div><figcaption><b>Alkaloid</b><span>Numen</span></figcaption></figure>
+            <figure style="--hue: 232; --turn: -107deg"><div class="generative-cover" aria-hidden="true"><span></span><i></i></div><figcaption><b>H. H. Stafylakis</b><span>Calibrating Friction</span></figcaption></figure>
+            <figure style="--hue: 155; --turn: 119deg"><div class="generative-cover" aria-hidden="true"><span></span><i></i></div><figcaption><b>Feather</b><span>Eternal</span></figcaption></figure>
+            <figure style="--hue: 201; --turn: -133deg"><div class="generative-cover" aria-hidden="true"><span></span><i></i></div><figcaption><b>Stortregn</b><span>Finitude</span></figcaption></figure>
+            <figure style="--hue: 181; --turn: 147deg"><div class="generative-cover" aria-hidden="true"><span></span><i></i></div><figcaption><b>Ions</b><span>Counterintuitive</span></figcaption></figure>
+          </div>
+        </section>
+
+        <section class="about-studio" id="about" aria-labelledby="about-heading">
+          <p class="about-studio__year" aria-hidden="true">2009</p>
+          <figure class="about-studio__portrait">
+            <svg viewBox="0 0 800 1000" role="img" aria-labelledby="listening-field-title listening-field-desc">
+              <title id="listening-field-title">The listening field</title>
+              <desc id="listening-field-desc">An original abstract illustration of a listener surrounded by concentric currents and a continuous waveform.</desc>
+              <defs>
+                <linearGradient id="portraitField" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#06151d"/><stop offset=".55" stop-color="#0b3940"/><stop offset="1" stop-color="#0c1a26"/></linearGradient>
+                <radialGradient id="portraitGlow"><stop stop-color="#a9fff0" stop-opacity=".8"/><stop offset=".35" stop-color="#35c8c6" stop-opacity=".28"/><stop offset="1" stop-color="#35c8c6" stop-opacity="0"/></radialGradient>
+                <filter id="portraitBlur"><feGaussianBlur stdDeviation="16"/></filter>
+              </defs>
+              <rect width="800" height="1000" fill="url(#portraitField)"/>
+              <circle cx="425" cy="390" r="290" fill="url(#portraitGlow)" filter="url(#portraitBlur)"/>
+              <g fill="none" stroke="#7be4db" stroke-opacity=".22">
+                <ellipse cx="400" cy="460" rx="300" ry="190"/>
+                <ellipse cx="400" cy="460" rx="245" ry="150"/>
+                <ellipse cx="400" cy="460" rx="190" ry="112"/>
+                <path d="M-20 480c85 0 85-36 170-36s85 72 170 72 85-116 170-116 85 80 170 80 85-28 170-28" stroke="#c8fff4" stroke-opacity=".78" stroke-width="3"/>
+                <path d="M-40 525c110 0 110-18 220-18s110 42 220 42 110-65 220-65 110 28 220 28"/>
+              </g>
+              <g fill="#02080d">
+                <path d="M296 768c20-133 75-198 104-209 29 11 84 76 104 209l45 232H251z"/>
+                <ellipse cx="400" cy="402" rx="106" ry="132"/>
+              </g>
+              <g fill="none" stroke="#b7fff0" stroke-width="3" stroke-opacity=".72">
+                <path d="M310 380c18-82 70-116 126-103 45 11 76 53 78 112"/>
+                <path d="M307 393h-35c-17 0-30 14-30 31v69c0 17 13 31 30 31h38zm200 0h35c17 0 30 14 30 31v69c0 17-13 31-30 31h-38z"/>
+                <path d="M550 502c0 56-30 86-91 96"/>
+              </g>
+              <circle cx="454" cy="598" r="8" fill="#c8fff4"/>
+              <g fill="#b7fff0" font-family="DM Mono, monospace" font-size="12" letter-spacing="3">
+                <text x="42" y="70">LISTEN / 01</text>
+                <text x="610" y="935">FIELD / OM</text>
+              </g>
+            </svg>
+            <figcaption>An original signal portrait—listening before intervention.</figcaption>
+          </figure>
+          <div class="about-studio__copy">
+            <p class="eyebrow">Founded in Austin</p>
+            <h2 id="about-heading">Engineered with<br>an artist’s ear.</h2>
+            <p>J Fi founded Ocean Mastering in 2009 to help records become more fully themselves. Hundreds of projects later, the work still begins the same way: listen deeply, preserve intention, and finish with purpose.</p>
+            <dl>
+              <div><dt>15+</dt><dd>Years of focused mastering</dd></div>
+              <div><dt>100s</dt><dd>Of records completed</dd></div>
+              <div><dt>1</dt><dd>Purpose-built listening room</dd></div>
+            </dl>
+          </div>
+          <div class="studio-mosaic" aria-label="Ocean Mastering studio equipment">
+            <figure><svg viewBox="0 0 400 520" aria-hidden="true"><g fill="none" stroke="currentColor"><rect x="48" y="80" width="304" height="360" rx="18"/><path d="M78 135h244M78 190h244M78 245h244M78 300h244M78 355h244"/><g stroke-width="8"><path d="M110 118v44m54 42v44m54-115v44m54 71v44m-162 16v44m54-16v44m54-71v44m54-16v44"/></g></g></svg><figcaption>Precision console</figcaption></figure>
+            <figure><svg viewBox="0 0 400 520" aria-hidden="true"><g fill="none" stroke="currentColor"><rect x="55" y="76" width="290" height="368" rx="20"/><path d="M92 328h216M92 378h216"/><circle cx="138" cy="178" r="48"/><circle cx="262" cy="178" r="48"/><path d="M119 178h38m-19-19v38m105-19h38m-19-19v38"/><path d="M118 110V54h40v56m84 0V54h40v56"/></g></svg><figcaption>Tube compression</figcaption></figure>
+            <figure><svg viewBox="0 0 400 520" aria-hidden="true"><g fill="none" stroke="currentColor"><path d="M76 96h248l-20 350H96z"/><circle cx="200" cy="232" r="88"/><circle cx="200" cy="232" r="34"/><circle cx="200" cy="377" r="22"/><path d="M150 96 200 52l50 44"/></g></svg><figcaption>Reference monitoring</figcaption></figure>
+            <figure><svg viewBox="0 0 400 520" aria-hidden="true"><g fill="none" stroke="currentColor"><rect x="42" y="72" width="316" height="250" rx="18"/><path d="M84 126h232M84 177h232M84 228h232M84 279h232M114 126v153m58-153v153m58-153v153m58-153v153"/><path d="M200 322v64m-92 58h184M146 386h108l38 58H108z"/></g></svg><figcaption>Digital workstation</figcaption></figure>
+          </div>
+        </section>
+
+        <section class="testimonials" aria-labelledby="testimonials-heading">
+          <header>
+            <p class="eyebrow">Artists on the other side</p>
+            <h2 id="testimonials-heading">What comes back<br>from the water.</h2>
+          </header>
+          <div>
+            <blockquote><p>“The depth and clarity Ocean Mastering brought to my latest LP is unparalleled. It truly feels like the final piece of the artistic puzzle was found.”</p><footer>Julian K</footer></blockquote>
+            <blockquote><p>“Finally, someone who understands system translation. My tracks sound massive in the club and warm on earbuds.”</p><footer>Sarat Vance</footer></blockquote>
+            <blockquote><p>“Precision and fidelity are secondary to the emotional impact they managed to preserve. Truly engineered with an artist’s ear.”</p><footer>Marcus Thorne</footer></blockquote>
+          </div>
+        </section>
+
+        <section class="contact-panel" id="contact" aria-labelledby="contact-heading">
+          <p class="eyebrow">Ready when you are</p>
+          <h2 id="contact-heading">Send your record<br>out whole.</h2>
+          <a class="contact-panel__email" href="mailto:ocean.mastering@gmail.com?subject=Mastering%20project%20inquiry">ocean.mastering@gmail.com <span aria-hidden="true">↗</span></a>
+          <p>2906 E MLK Jr Blvd Ste 3311 · Austin, TX 78702 · Projects worldwide</p>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="wordmark wordmark--footer" href="#top" aria-label="Ocean Mastering, back to top">
+        <svg class="wordmark__mark" viewBox="0 0 64 32" aria-hidden="true"><path d="M2 16c5.2 0 5.2-8 10.4-8s5.2 16 10.4 16S28 8 33.2 8s5.2 16 10.4 16S48.8 8 54 8s5.2 8 8 8"/></svg>
+        <span class="wordmark__type"><b>OCEAN</b><span>MASTERING</span></span>
+      </a>
+      <p>Precision · Fidelity · Translation</p>
+      <p>© <span data-current-year>2026</span> Ocean Mastering</p>
+    </footer>
+  </body>
+</html>

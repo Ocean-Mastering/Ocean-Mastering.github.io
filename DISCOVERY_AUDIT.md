@@ -8,7 +8,7 @@ This document records the evidence gathered before implementation. It is descrip
 
 Source: `https://www.ocean-mastering.com/`
 
-The current Wix site is a compact brochure site with three routes: Home, About Us, and Testimonials Submission. Its strongest reusable material is the existing Ocean Mastering identity, approved studio imagery, real listening examples, founder story, service language, testimonials, contact details, and release artwork. The new experience should preserve that substance while replacing the template-like layout and generic audio-player treatment.
+The current Wix site is a compact brochure site with three routes: Home, About Us, and Testimonials Submission. It is a factual and audio-content source only. The new experience preserves the real listening examples, founder story, service language, testimonials, contact details, and project names while deliberately replacing the entire legacy graphic system.
 
 ### Brand and positioning
 
@@ -73,9 +73,10 @@ The current page claims “ISO 12845:2018 compliance.” This must not be migrat
 
 ### Asset policy
 
-- Preserve approved Ocean Mastering identity files, founder/studio photography, cover art, and audio only as project-owned source material.
-- Download source-quality media rather than screenshotting rendered pages.
-- Give every image an explicit purpose, crop, alt-text decision, and responsive size.
+- Do not migrate the current logo, cover artwork, founder/studio photography, Wix imagery, or any other legacy visual asset.
+- Author new graphics inline using procedural WebGL, SVG, and CSS so the visual system is native to this narrative.
+- Preserve the ten real audio examples as locally hosted content in an accessible first-party player.
+- Project names and factual business information may identify the body of work, but their site graphics must be original Ocean Mastering interface art rather than substitute album covers.
 - Do not reproduce Wix scaffolding, template markup, or third-party player code.
 
 ## Concept-reference audit
@@ -121,4 +122,4 @@ Source: `https://github.com/Ocean-Mastering`
 - The new homepage will be the narrative experience described in the contract.
 - About, work/listening, process/services, and contact information will remain reachable through semantic sections and a persistent navigation layer; separate detail routes can be added after the core story proves itself.
 - The direct email CTA remains the reliable baseline. A static-site contact form requires a deliberate third-party endpoint and will not be silently simulated.
-- The first prototype will use procedural graphics, so it can prove the signal-to-sea metaphor before asset migration or decorative polish obscures the central interaction.
+- The entire visual system—not only the first prototype—will remain newly authored inline. There is no legacy graphic-asset migration phase.
