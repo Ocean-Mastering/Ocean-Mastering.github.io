@@ -114,7 +114,7 @@ Five horizontal raster cloud layers sit along the final camera trajectory at dif
 
 ### Handoff guard
 
-The authored story reaches its final state at 86% of the cinematic region, leaving approximately 140svh of native-scroll runway for the damped playhead and aerial hold. Until authored progress reaches `0.9992`, the post-story region remains invisible and attempts to scroll beyond the sticky boundary are returned to that boundary. Anchor navigation and the skip link deliberately bypass the guard and finish the playhead immediately.
+Scroll-to-story mapping is intentionally piecewise. The first ten shots occupy the first 70% of native travel; the aerial revelation then expands from story progress `0.91` across native progress `0.70–0.985`, giving the growing ocean-and-cloud reveal roughly 2.6 viewport-heights of continuous change. Only the final 1.5% is a settled hold. Until authored progress reaches `0.9992`, the post-story region remains invisible and attempts to scroll beyond the sticky boundary are returned to that boundary. Anchor navigation and the skip link deliberately bypass the guard and finish the playhead immediately.
 
 ### Waterline treatment
 

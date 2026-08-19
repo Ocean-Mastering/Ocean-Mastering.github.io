@@ -4,7 +4,18 @@ import { createCopyLayer } from "./copy-layer.js";
 import { createBelowSurfaceScene } from "./scene/below-surface-scene.js";
 import { createSiteInteractions } from "./site-interactions.js";
 
-const STORY_SCROLL_END = 0.86;
+const STORY_SCROLL_END = 0.985;
+const FINALE_SCROLL_START = 0.7;
+const FINALE_STORY_START = 0.91;
+
+function mapScrollToStory(progress) {
+  const normalized = clamp(progress);
+  if (normalized <= FINALE_SCROLL_START) {
+    return normalized / FINALE_SCROLL_START * FINALE_STORY_START;
+  }
+  const finaleProgress = clamp((normalized - FINALE_SCROLL_START) / (STORY_SCROLL_END - FINALE_SCROLL_START));
+  return FINALE_STORY_START + finaleProgress * (1 - FINALE_STORY_START);
+}
 
 const root = document.querySelector("[data-cinematic]");
 const canvas = document.querySelector("[data-ocean-canvas]");
@@ -30,7 +41,7 @@ try {
 let storyBypassed = Boolean(initialAnchorTarget?.closest(".after-story"));
 
 const playhead = new ScrollPlayhead(root, (progress, active, motion) => {
-  const authoredProgress = clamp(progress / STORY_SCROLL_END);
+  const authoredProgress = mapScrollToStory(progress);
   const sceneProgress = reducedMotion ? getReducedMotionProgress(authoredProgress) : authoredProgress;
   currentState = getStoryState(sceneProgress);
   const afterStoryTop = root.offsetTop + root.offsetHeight;
